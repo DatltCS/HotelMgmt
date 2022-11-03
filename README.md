@@ -1,1 +1,1 @@
-# hotel-manage-ou
+# HOTEL MANAGEMENT PROJECT
