@@ -24,4 +24,4 @@ hs_err_pid*
 /target/
 
 # uml lock file
-.asta.lock
+*.asta.lock
