@@ -25,3 +25,6 @@ hs_err_pid*
 
 # uml lock file
 *.asta.lock
+
+# .idea folder
+.idea/
