@@ -1,7 +1,45 @@
-/*
- * Empty Stylesheet file.
- */
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap');
 
-.mainFxmlClass {
+* {
+    -fx-font-family: 'Gentium Book Basic', serif;
+}
 
+Button {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+}
+
+Button.signup {
+    -fx-background-color: white;
+    -fx-border-color: #0070FF;
+    -fx-text-fill: #0070FF;
+}
+
+Button.signin {
+    -fx-background-color: #0070FF;
+    -fx-border-color: #0070FF;
+    -fx-text-fill: white;
+}
+
+HBox {
+    -fx-spacing: 40px;
+}
+
+ToggleButton {
+    -fx-background-color: transparent;
+}
+
+.error {
+    -fx-fill: red;
+    -fx-font-size: 16;
+}
+
+.input {
+    -fx-text-fill: #0070FF;
+    -fx-font-size: 18;
+    -fx-text-box-border: #0070FF;
 }

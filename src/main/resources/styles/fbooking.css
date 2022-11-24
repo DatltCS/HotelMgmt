@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap');
+
+* {
+    -fx-font-family: 'Gentium Book Basic', serif;
+    -fx-text-fill: white;
+}
+
+VBox.main {
+    -fx-background-color: #003E8C;
+}
+
+Button {
+    -fx-font-size: 28;
+    -fx-background-color: white;
+    -fx-text-fill:#003E8C; 
+}
+
+Text {
+    -fx-fill: white;
+}
+
+VBox {
+    -fx-spacing: 5;
+}
+
+VBox HBox {
+    -fx-font-size: 18;
+}
