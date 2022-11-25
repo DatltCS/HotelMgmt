@@ -80,6 +80,18 @@
     -fx-text-fill: #0E75F8;
 }
 
+.btn-search-emp {
+    -fx-font-size: 18;
+    -fx-background-color: white;
+    -fx-cursor: hand;
+    -fx-text-fill: #0E75F8;
+}
+
+.txt-search {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
 DatePicker {
     -fx-font-size: 20;
     -fx-pref-width: 240;
@@ -90,4 +102,8 @@ MenuButton {
     -fx-fill: azure;
     -fx-font-size: 20;
     -fx-pref-width: USE_COMPUTED_SIZE;
+}
+
+TableView {
+    -fx-font-size: 18;
 }
