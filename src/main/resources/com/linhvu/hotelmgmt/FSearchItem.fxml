@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="360.0" styleClass="search-item" stylesheets="@../../../styles/fstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Room num">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="190.0" text="Made up name">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="130.0" text="price/night" textAlignment="RIGHT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Line endX="50.0" fill="#0070ff" startX="-100.0" stroke="#0070ff" strokeWidth="2.0">
+         <VBox.margin>
+            <Insets bottom="7.0" top="7.0" />
+         </VBox.margin>
+      </Line>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description: lorem....." wrappingWidth="320.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</VBox>

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap');
+
+* {
+    -fx-font-family: 'Gentium Book Basic', serif;
+}
+
+.main {
+    -fx-pref-width: 1024;
+    -fx-pref-height: 600;
+}
+
+.main-blue {
+    -fx-background-color: #003E8C;
+    -fx-text-fill: white;
+}
+
+.main-white {
+    -fx-background-color: white;
+}
+
+.logo {
+    -fx-font-size: 36;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.nav-bar {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-padding: 15 40 15 40;
+    -fx-background-color: #003E8C;
+}
+
+.btn-signui {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-background-color: white;
+    -fx-cursor: hand;
+    -fx-text-fill: #0070FF;
+}
+
+.lb-ads {
+    -fx-font-size: 52;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.btn-search {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color: #0E75F8;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+.date-pk-small {
+    -fx-font-size: 16;
+    -fx-pref-width: 200;
+}
+
+.search-item {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 2;
+    -fx-border-color: #0070FF;
+    -fx-padding: 20;
+    -fx-text-fill: black;
+}
+
+.btn-employee-fn {
+    -fx-font-size: 24;
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-text-fill: lightslategrey;
+    -fx-cursor: hand;
+}
+
+.btn-employee-fn:hover {
+    -fx-font-size: 24;
+    -fx-text-fill: #0E75F8;
+}
+
+DatePicker {
+    -fx-font-size: 20;
+    -fx-pref-width: 240;
+}
+
+MenuButton {
+    -fx-background-color: #003E8C;
+    -fx-fill: azure;
+    -fx-font-size: 20;
+    -fx-pref-width: USE_COMPUTED_SIZE;
+}
