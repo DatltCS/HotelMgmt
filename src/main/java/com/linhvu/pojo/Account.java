@@ -9,12 +9,12 @@ package com.linhvu.pojo;
  * @author prodi
  */
 public class Account {
-    enum AccountType {
+    public enum AccountType {
         customer,
         employee
     }
     
-    enum AccountStatus {
+    public enum AccountStatus {
         active,
         close,
         blacklisted

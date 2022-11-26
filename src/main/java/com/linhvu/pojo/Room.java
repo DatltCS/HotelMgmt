@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * @author prodi
  */
 public class Room {
-    enum RoomStatus {
+    public enum RoomStatus {
         available,
         reserved,
         occupied,

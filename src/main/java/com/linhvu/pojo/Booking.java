@@ -11,7 +11,7 @@ import java.util.Date;
  * @author prodi
  */
 public class Booking {
-    enum BookingStatus {
+    public enum BookingStatus {
         booked, 
         checkedin,
         checkedout,

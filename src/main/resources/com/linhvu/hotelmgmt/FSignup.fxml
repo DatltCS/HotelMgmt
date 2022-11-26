@@ -59,11 +59,6 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="270.0" styleClass="signin" text="Sign In">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
          </children>
       </VBox>
    </children>
