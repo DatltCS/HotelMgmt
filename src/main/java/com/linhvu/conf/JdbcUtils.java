@@ -30,6 +30,6 @@ public class JdbcUtils {
      * @throws java.sql.SQLException
      */
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("", "", "");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel-mgmt", "root", "k1llm3qu1ckly@");
     }
 }
