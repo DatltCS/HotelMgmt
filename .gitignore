@@ -26,4 +26,5 @@ hs_err_pid*
 # uml lock file
 *.asta.lock
 
-
+# jdbc utils (for secure reason)
+#JdbcUtils.java
