@@ -22,7 +22,17 @@ public class Customer {
 
     public Customer() {
     }
-    
+
+    public Customer(int customerID, String userID, String fName, String lName, Date birthday, String phoneNum, String email, String address) {
+        this.customerID = customerID;
+        this.userID = userID;
+        this.fName = fName;
+        this.lName = lName;
+        this.birthday = birthday;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.address = address;
+    }
 
     /**
      * @return the customerID
