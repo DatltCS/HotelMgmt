@@ -34,7 +34,7 @@ public class FMainEmployeeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        loadMenuButton();
     }
 
     public void getEmployeeData(String userID) throws SQLException {
@@ -43,7 +43,10 @@ public class FMainEmployeeController implements Initializable {
     }
 
     public void loadMenuButton() {
-        this.menuBtn.setText("Welcome, " + e.getfName());
+        if (e == null)
+            this.menuBtn.setText("TESTING");
+        else
+            this.menuBtn.setText("Welcome, " + e.getfName());
         Utils.loadEmployeeMenuItem(menuBtn);
     }
 }

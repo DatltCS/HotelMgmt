@@ -25,7 +25,7 @@
 }
 
 .nav-bar {
-    -fx-pref-width: USE_COMPUTED_SIZE;
+    /*-fx-pref-width: USE_COMPUTED_SIZE;*/
     -fx-padding: 15 40 15 40;
     -fx-background-color: #003E8C;
 }
@@ -101,7 +101,7 @@ MenuButton {
     -fx-background-color: #003E8C;
     -fx-fill: azure;
     -fx-font-size: 20;
-    -fx-pref-width: USE_COMPUTED_SIZE;
+    /*-fx-pref-width: USE_COMPUTED_SIZE;*/
 }
 
 TableView {
