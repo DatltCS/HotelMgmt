@@ -22,6 +22,17 @@ public class Employee {
 
     public Employee() {
     }
+
+    public Employee(int employeeID, String userID, String fName, String lName, Date birthday, String phoneNum, String email, String address) {
+        this.employeeID = employeeID;
+        this.userID = userID;
+        this.fName = fName;
+        this.lName = lName;
+        this.birthday = birthday;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.address = address;
+    }
     
 
     /**

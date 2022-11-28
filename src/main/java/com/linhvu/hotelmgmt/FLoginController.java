@@ -4,6 +4,7 @@
  */
 package com.linhvu.hotelmgmt;
 
+import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Account;
 import com.linhvu.pojo.Account.AccountType;
 import com.linhvu.services.AccountService;
@@ -71,6 +72,7 @@ public class FLoginController implements Initializable {
             this.errorText.setText("Please choose your account type!");
         } else {
             this.errorText.setText(" ");
+
             Account a = new Account();
             AccountService as = new AccountService();
 
@@ -100,7 +102,7 @@ public class FLoginController implements Initializable {
                         stage.setTitle("Hotel del Luna - Main page");
                         stage.show();
 
-                        centerScreen(stage);
+                        Utils.centerScreen(stage);
                         break;
 
                     case employee:
@@ -108,30 +110,22 @@ public class FLoginController implements Initializable {
                         fxmlLoader = new FXMLLoader(App.class.getResource("FMainEmployee.fxml"));
                         root = fxmlLoader.load();
 
-                        // TODO: Xử lý Controller giao diện chính nhân viên
-//                        FMainController employeeCtrl = fxmlLoader.getController();
-//                        employeeCtrl.getCustomerData(a.getUserID());
-//                        employeeCtrl.loadMenuButton();
+                        FMainEmployeeController emCtrl = fxmlLoader.getController();
+                        emCtrl.getEmployeeData(a.getUserID());
+                        emCtrl.loadMenuButton();
 
                         scene = new Scene(root);
                         stage.setScene(scene);
-                        stage.setTitle("Hotel del Luna - Main page");
+                        stage.setTitle("Hotel del Luna - Main employee page");
                         stage.show();
 
-                        centerScreen(stage);
+                        Utils.centerScreen(stage);
                         break;
                 }
             }
             else
                 this.errorText.setText("UserID or Password incorrect!");
         }
-    }
-
-    public void centerScreen(Stage stage) {
-        // Xử lý đưa ứng dụng về giữa màn hình người dùng
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
     }
 }
 
