@@ -34,3 +34,9 @@ TextField, DatePicker {
     -fx-fill: white;
     -fx-font-size: 16;
 }
+
+.input {
+    -fx-text-fill: #0070FF;
+    -fx-font-size: 18;
+    -fx-text-box-border: #0070FF;
+}

@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="600.0" stylesheets="@../../../styles/fstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="600.0" stylesheets="@../../../styles/fstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.linhvu.hotelmgmt.FCheckinController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1024.0" styleClass="nav-bar">
          <children>
             <Label prefHeight="53.0" prefWidth="196.0" styleClass="logo" text="DEL LUNA" />
             <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="493.0" spacing="20.0">
                <children>
-                  <TextField promptText="Customer ID" styleClass="txt-search" />
-                  <Button mnemonicParsing="false" styleClass="btn-search-emp" text="Button" />
+                  <TextField fx:id="txtfInputID" promptText="Customer ID" styleClass="txt-search" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" styleClass="btn-search-emp" text="Search" />
                </children>
             </HBox>
-            <MenuButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Welcome user!" textAlignment="RIGHT" textFill="WHITE" underline="true">
+            <MenuButton fx:id="menuBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Welcome user!" textAlignment="RIGHT" textFill="WHITE" underline="true">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />
                   <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -37,16 +37,16 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <TableView prefHeight="380.0" prefWidth="904.0">
+      <TableView fx:id="tbvData" prefHeight="380.0" prefWidth="904.0">
          <VBox.margin>
             <Insets bottom="20.0" left="60.0" right="60.0" top="20.0" />
          </VBox.margin>
       </TableView>
       <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" styleClass="btn-search-emp" text="Check In" />
-            <Button mnemonicParsing="false" styleClass="btn-search-emp" text="Check Out" />
-            <Button mnemonicParsing="false" styleClass="btn-search-emp" text="Mark as canceled" />
+            <Button fx:id="btnCheckin" mnemonicParsing="false" styleClass="btn-search-emp" text="Check In" />
+            <Button fx:id="btnCheckout" mnemonicParsing="false" styleClass="btn-search-emp" text="Check Out" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" styleClass="btn-search-emp" text="Mark as canceled" />
          </children>
          <VBox.margin>
             <Insets />

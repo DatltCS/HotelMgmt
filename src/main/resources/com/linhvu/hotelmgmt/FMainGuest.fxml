@@ -8,16 +8,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="600.0" stylesheets="@../../../styles/fstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="600.0" stylesheets="@../../../styles/fstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.linhvu.hotelmgmt.FMainGuestController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1024.0" styleClass="nav-bar">
          <children>
             <Label prefHeight="53.0" prefWidth="499.0" styleClass="logo" text="DEL LUNA" />
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="875.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="btn-signui" text="Sign Up" />
-                  <Button mnemonicParsing="false" styleClass="btn-signui" text="Sign In" />
+                  <Button fx:id="btnSignup" mnemonicParsing="false" styleClass="btn-signui" text="Sign Up" />
+                  <Button fx:id="btnSignin" mnemonicParsing="false" styleClass="btn-signui" text="Sign In" />
                </children>
             </HBox>
          </children>
@@ -38,9 +37,9 @@
             </VBox>
             <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
                <children>
-                  <DatePicker editable="false" promptText="Check-in" />
-                  <DatePicker promptText="Check-out" />
-                  <Button mnemonicParsing="false" styleClass="btn-search" text="Search" />
+                  <DatePicker fx:id="dtCheckin" editable="false" promptText="Check-in" />
+                  <DatePicker fx:id="dtCheckout" promptText="Check-out" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" styleClass="btn-search" text="Search" />
                </children>
             </HBox>
          </children>

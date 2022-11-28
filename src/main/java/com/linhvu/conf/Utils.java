@@ -80,12 +80,12 @@ public class Utils {
         // Xử lý menu người dùng
         MenuItem itemGuest = new MenuItem("Check in/out guest");
         MenuItem itemBooking = new MenuItem("Check/Edit booking details");
-        MenuItem itemRoom = new MenuItem("Manage rooms");
+//        MenuItem itemRoom = new MenuItem("Manage rooms");
         MenuItem itemSignOut = new MenuItem("Sign out");
 
         menuBtn.getItems().add(itemGuest);
         menuBtn.getItems().add(itemBooking);
-        menuBtn.getItems().add(itemRoom);
+//        menuBtn.getItems().add(itemRoom);
         menuBtn.getItems().add(itemSignOut);
 
         itemGuest.setOnAction(new EventHandler<ActionEvent>() {
@@ -102,12 +102,12 @@ public class Utils {
             }
         });
 
-        itemRoom.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-            }
-        });
+//        itemRoom.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//
+//            }
+//        });
 
         itemSignOut.setOnAction(new EventHandler<ActionEvent>() {
             @Override
