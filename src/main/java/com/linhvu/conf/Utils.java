@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Screen;
@@ -23,6 +24,13 @@ import java.io.IOException;
  * @author prodi
  */
 public class Utils {
+    public static Alert getBox(String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setContentText(content);
+
+        return alert;
+    }
+
     // Xử lý đưa ứng dụng về giữa màn hình người dùng
     public static void centerScreen(Stage stage) {
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();

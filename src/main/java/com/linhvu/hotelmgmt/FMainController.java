@@ -33,7 +33,8 @@ public class FMainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadMenuButton();
+        if (c == null)
+            loadMenuButton();
     }
 
     public void getCustomerData(String UserID) throws SQLException {

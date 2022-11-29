@@ -34,7 +34,8 @@ public class FMainEmployeeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadMenuButton();
+        if (e == null)
+            loadMenuButton();
     }
 
     public void getEmployeeData(String userID) throws SQLException {
