@@ -6,11 +6,13 @@ package com.linhvu.hotelmgmt;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Customer;
 import com.linhvu.services.CustomerService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -33,20 +35,58 @@ public class FMainController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (c == null)
-            loadMenuButton();
+        if ((long) menuBtn.getItems().size() < 1)
+            loadMenuButton(false);
+
+        // init DatePicker
+        Utils.initDatePicker(dateCheckin);
+        Utils.initDatePicker(dateCheckout);
+
+        // Định dạng lại điều kiện của DatePicker mỗi khi có ngày được chọn
+        dateCheckin.valueProperty().addListener((observableValue, localDate, t1) -> reinitDtCheckout());
+        dateCheckout.valueProperty().addListener((observableValue, localDate, t1) -> reinitDtCheckin());
+    }
+
+    public void btnSearchClick(ActionEvent event) {
+        // TODO: lấy + truyền dữ liệu ngày sang form Search, mở FSearch
+        // Cần truyền: startDate, endDate, userID
     }
 
     public void getCustomerData(String UserID) throws SQLException {
         CustomerService cs = new CustomerService();
-        c = cs.getCustomerData(UserID);
+        this.c = cs.getCustomerData(UserID);
     }
 
-    public void loadMenuButton() {
-        if (c == null)
+    public void getCustomer(Customer cus) {
+        this.c = cus;
+    }
+
+    public void loadMenuButton(boolean key) {
+        // key -> đánh dấu đã xác thực đăng nhập hay chưa
+        if (!key) {
             this.menuBtn.setText("TESTING");
-        else
+            Utils.loadCustomerMenuItem(menuBtn, c);
+        } else
             this.menuBtn.setText("Welcome, " + c.getfName());
-        Utils.loadCustomerMenuItem(menuBtn);
+    }
+
+    public void reinitDtCheckout() {
+        dateCheckout.setDayCellFactory(param -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate localDate, boolean b) {
+                super.updateItem(localDate, b);
+                setDisable(b || localDate.compareTo(LocalDate.now()) < 0 || localDate.compareTo(dateCheckin.getValue()) <= 0);
+            }
+        });
+    }
+
+    public void reinitDtCheckin() {
+        dateCheckin.setDayCellFactory(param -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate localDate, boolean b) {
+                super.updateItem(localDate, b);
+                setDisable(b || localDate.compareTo(LocalDate.now()) < 0 || localDate.compareTo(dateCheckout.getValue()) >= 0);
+            }
+        });
     }
 }

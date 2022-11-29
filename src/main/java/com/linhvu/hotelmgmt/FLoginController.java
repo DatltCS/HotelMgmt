@@ -43,8 +43,6 @@ public class FLoginController implements Initializable {
     @FXML Button btnSignup;
     @FXML Button btnSignin;
     
-    public static String account;
-    
     /**
      * Initializes the controller class.
      */
@@ -62,7 +60,7 @@ public class FLoginController implements Initializable {
         stage.setTitle("Sign up here!");
 
         // điều chỉnh không cho phép tương tác với login khi đang mở sign-up
-        stage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
@@ -97,7 +95,7 @@ public class FLoginController implements Initializable {
 
                         FMainController mainCtrl = fxmlLoader.getController();
                         mainCtrl.getCustomerData(a.getUserID());
-                        mainCtrl.loadMenuButton();
+                        mainCtrl.loadMenuButton(true);
 
                         scene = new Scene(root);
                         stage.setScene(scene);
@@ -114,7 +112,7 @@ public class FLoginController implements Initializable {
 
                         FMainEmployeeController emCtrl = fxmlLoader.getController();
                         emCtrl.getEmployeeData(a.getUserID());
-                        emCtrl.loadMenuButton();
+                        emCtrl.loadMenuButton(true);
 
                         scene = new Scene(root);
                         stage.setScene(scene);

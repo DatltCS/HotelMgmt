@@ -5,8 +5,13 @@
 package com.linhvu.hotelmgmt;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.linhvu.conf.Utils;
+import com.linhvu.pojo.Customer;
+import com.linhvu.services.CustomerService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -28,12 +33,43 @@ public class FServicesController implements Initializable {
     @FXML Button btnDelete;
     @FXML Button btnDeleteAll;
 
+    private Customer c = null;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if ((long) menuBtn.getItems().size() < 1)
+            loadMenuButton(false);
     }    
-    
+
+    public void cbRoomSelect(ActionEvent event) {
+
+    }
+
+    public void btnAddClick(ActionEvent event) {
+
+    }
+
+    public void btnDeleteClick(ActionEvent event) {
+
+    }
+
+    public void btnDeleteAllClick(ActionEvent event) {
+
+    }
+
+    public void getCustomer(Customer cus) {
+        c = cus;
+    }
+
+    public void loadMenuButton(boolean key) {
+        // key -> đánh dấu đã xác thực đăng nhập hay chưa
+        if (!key) {
+            this.menuBtn.setText("TESTING");
+            Utils.loadCustomerMenuItem(menuBtn, c);
+        } else
+            this.menuBtn.setText("Welcome, " + c.getfName());
+    }
 }

@@ -46,17 +46,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnCheckInOut" alignment="CENTER" mnemonicParsing="false" prefHeight="118.0" prefWidth="262.0" styleClass="btn-employee-fn" text="Check-in / Check-out Guest" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnCheckInOut" alignment="CENTER" mnemonicParsing="false" onAction="#btnCheckInOutClick" prefHeight="118.0" prefWidth="262.0" styleClass="btn-employee-fn" text="Check-in / Check-out Guest" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnBookDetails" alignment="CENTER" mnemonicParsing="false" prefHeight="118.0" prefWidth="262.0" styleClass="btn-employee-fn" text="Check / Edit Booking Details" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1">
+                  <Button fx:id="btnBookDetails" alignment="CENTER" mnemonicParsing="false" onAction="#btnBookDetailsClick" prefHeight="118.0" prefWidth="262.0" styleClass="btn-employee-fn" text="Check / Edit Booking Details" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnManageRoom" alignment="CENTER" mnemonicParsing="false" prefHeight="118.0" prefWidth="262.0" styleClass="btn-employee-fn" text="Manage Rooms" textAlignment="CENTER" GridPane.columnIndex="2">
+                  <Button fx:id="btnManageRoom" alignment="CENTER" mnemonicParsing="false" onAction="#btnManageRoomClick" prefHeight="118.0" prefWidth="262.0" styleClass="btn-employee-fn" text="Manage Rooms" textAlignment="CENTER" GridPane.columnIndex="2">
                      <font>
                         <Font size="24.0" />
                      </font>

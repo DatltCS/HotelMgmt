@@ -4,20 +4,19 @@
  */
 package com.linhvu.conf;
 
-import com.linhvu.hotelmgmt.App;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.linhvu.hotelmgmt.*;
+import com.linhvu.pojo.Customer;
+import com.linhvu.pojo.Employee;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  *
@@ -38,7 +37,7 @@ public class Utils {
         stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
     }
 
-    public static void loadCustomerMenuItem(MenuButton menuBtn) {
+    public static void loadCustomerMenuItem(MenuButton menuBtn, Customer customer) {
         // Xử lý menu người dùng
         MenuItem itemBook = new MenuItem("Book a room");
         MenuItem itemServices = new MenuItem("Room services");
@@ -49,91 +48,152 @@ public class Utils {
         menuBtn.getItems().add(itemSignOut);
 
         // Xử lý các Menu button item => sự kiện click
-        itemBook.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
+        itemBook.setOnAction(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FMain.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+            FMainController mainCtrl = fxmlLoader.getController();
+            mainCtrl.getCustomer(customer);
+            mainCtrl.loadMenuButton(false);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         });
 
-        itemServices.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
+        itemServices.setOnAction(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FServices.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+            FServicesController sc = fxmlLoader.getController();
+            sc.getCustomer(customer);
+            sc.loadMenuButton(false);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         });
 
-        itemSignOut.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FLogin.fxml"));
-                Parent root = null;
-                try {
-                    root = fxmlLoader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Scene scene = new Scene(root);
-                Stage stage = (Stage)menuBtn.getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle("Hotel del Luna - Sign in");
-                stage.show();
-                Utils.centerScreen(stage);
+        itemSignOut.setOnAction(event -> {
+            Scene scene = null;
+            try {
+                scene = new Scene(new FXMLLoader(App.class.getResource("FLogin.fxml")).load());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Hotel del Luna - Sign in");
+            stage.show();
+            Utils.centerScreen(stage);
         });
     }
 
-    public static void loadEmployeeMenuItem(MenuButton menuBtn) {
+    public static void loadEmployeeMenuItem(MenuButton menuBtn, Employee employee) {
         // Xử lý menu người dùng
+        MenuItem itemMain = new MenuItem("Employee main page");
         MenuItem itemGuest = new MenuItem("Check in/out guest");
         MenuItem itemBooking = new MenuItem("Check/Edit booking details");
 //        MenuItem itemRoom = new MenuItem("Manage rooms");
         MenuItem itemSignOut = new MenuItem("Sign out");
 
+        menuBtn.getItems().add(itemMain);
         menuBtn.getItems().add(itemGuest);
         menuBtn.getItems().add(itemBooking);
 //        menuBtn.getItems().add(itemRoom);
         menuBtn.getItems().add(itemSignOut);
 
-        itemGuest.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
+        itemMain.setOnAction(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FMainEmployee.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+            FMainEmployeeController mainEmCtrl = fxmlLoader.getController();
+            mainEmCtrl.getEmployee(employee);
+            mainEmCtrl.loadMenuButton(false);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         });
 
-        itemBooking.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
+        itemGuest.setOnAction(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FCheckin.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+            FCheckinController checkinCtrl = fxmlLoader.getController();
+            checkinCtrl.getEmployee(employee);
+            checkinCtrl.loadMenuButton(false);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         });
 
-//        itemRoom.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//
-//            }
-//        });
+        itemBooking.setOnAction(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FServicesEmployee.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        itemSignOut.setOnAction(new EventHandler<ActionEvent>() {
+            FServicesEmployeeController secCtrl = fxmlLoader.getController();
+            secCtrl.getEmployee(employee);
+            secCtrl.loadMenuButton(false);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        });
+
+        itemSignOut.setOnAction(event -> {
+            Scene scene = null;
+            try {
+                scene = new Scene(new FXMLLoader(App.class.getResource("FLogin.fxml")).load());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Hotel del Luna - Sign in");
+            stage.show();
+            Utils.centerScreen(stage);
+        });
+    }
+
+    // Chỉ cho phép chọn ngày bắt đầu từ hiện tại (không được chọn ngày trong quá khứ)
+    public static void initDatePicker(DatePicker dtParam) {
+        dtParam.setDayCellFactory(param -> new DateCell() {
             @Override
-            public void handle(ActionEvent event) {
-                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FLogin.fxml"));
-                Parent root = null;
-                try {
-                    root = fxmlLoader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Scene scene = new Scene(root);
-                Stage stage = (Stage)menuBtn.getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle("Hotel del Luna - Sign in");
-                stage.show();
-                Utils.centerScreen(stage);
+            public void updateItem(LocalDate localDate, boolean b) {
+                super.updateItem(localDate, b);
+                setDisable(b || localDate.compareTo(LocalDate.now()) < 0);
             }
         });
     }
