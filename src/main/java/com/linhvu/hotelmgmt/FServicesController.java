@@ -33,15 +33,13 @@ public class FServicesController implements Initializable {
     @FXML Button btnDelete;
     @FXML Button btnDeleteAll;
 
-    private Customer c = null;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if ((long) menuBtn.getItems().size() < 1)
-            loadMenuButton(false);
+            loadMenuButton(true);
     }    
 
     public void cbRoomSelect(ActionEvent event) {
@@ -60,16 +58,12 @@ public class FServicesController implements Initializable {
 
     }
 
-    public void getCustomer(Customer cus) {
-        c = cus;
-    }
-
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
-        if (!key) {
-            this.menuBtn.setText("TESTING");
-            Utils.loadCustomerMenuItem(menuBtn, c);
+        if (key) {
+            this.menuBtn.setText("Welcome, " + CustomerService.customer.getfName());
+            Utils.loadCustomerMenuItem(menuBtn);
         } else
-            this.menuBtn.setText("Welcome, " + c.getfName());
+            this.menuBtn.setText("TESTING");
     }
 }

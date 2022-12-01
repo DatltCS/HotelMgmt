@@ -28,15 +28,13 @@ public class FMainController implements Initializable {
     @FXML DatePicker dateCheckout;
     @FXML Button btnSearch;
 
-    private Customer c = null;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if ((long) menuBtn.getItems().size() < 1)
-            loadMenuButton(false);
+            loadMenuButton(true);
 
         // init DatePicker
         Utils.initDatePicker(dateCheckin);
@@ -52,22 +50,13 @@ public class FMainController implements Initializable {
         // Cần truyền: startDate, endDate, userID
     }
 
-    public void getCustomerData(String UserID) throws SQLException {
-        CustomerService cs = new CustomerService();
-        this.c = cs.getCustomerData(UserID);
-    }
-
-    public void getCustomer(Customer cus) {
-        this.c = cus;
-    }
-
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
-        if (!key) {
-            this.menuBtn.setText("TESTING");
-            Utils.loadCustomerMenuItem(menuBtn, c);
+        if (key) {
+            this.menuBtn.setText("Welcome, " + CustomerService.customer.getfName());
+            Utils.loadCustomerMenuItem(menuBtn);
         } else
-            this.menuBtn.setText("Welcome, " + c.getfName());
+            this.menuBtn.setText("TESTING");
     }
 
     public void reinitDtCheckout() {

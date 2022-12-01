@@ -7,8 +7,10 @@ package com.linhvu.conf;
 import com.linhvu.hotelmgmt.*;
 import com.linhvu.pojo.Customer;
 import com.linhvu.pojo.Employee;
+import com.linhvu.services.CustomerService;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -37,7 +39,7 @@ public class Utils {
         stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
     }
 
-    public static void loadCustomerMenuItem(MenuButton menuBtn, Customer customer) {
+    public static void loadCustomerMenuItem(MenuButton menuBtn) {
         // Xử lý menu người dùng
         MenuItem itemBook = new MenuItem("Book a room");
         MenuItem itemServices = new MenuItem("Room services");
@@ -49,54 +51,29 @@ public class Utils {
 
         // Xử lý các Menu button item => sự kiện click
         itemBook.setOnAction(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FMain.fxml"));
-            Parent root = null;
             try {
-                root = fxmlLoader.load();
+                App.setRoot("FMain");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            FMainController mainCtrl = fxmlLoader.getController();
-            mainCtrl.getCustomer(customer);
-            mainCtrl.loadMenuButton(false);
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
         });
 
         itemServices.setOnAction(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FServices.fxml"));
-            Parent root = null;
             try {
-                root = fxmlLoader.load();
+                App.setRoot("FServices");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            FServicesController sc = fxmlLoader.getController();
-            sc.getCustomer(customer);
-            sc.loadMenuButton(false);
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
         });
 
         itemSignOut.setOnAction(event -> {
-            Scene scene = null;
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
             try {
-                scene = new Scene(new FXMLLoader(App.class.getResource("FLogin.fxml")).load());
+                App.setRoot("FLogin");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setTitle("Hotel del Luna - Sign in");
-            stage.show();
+            stage.sizeToScene();
             Utils.centerScreen(stage);
         });
     }

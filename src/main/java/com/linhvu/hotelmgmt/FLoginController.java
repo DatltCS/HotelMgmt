@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.linhvu.services.CustomerService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,44 +83,40 @@ public class FLoginController implements Initializable {
 
             if (as.validateLogin(a)) {
                 // xử lý chuyển sang giao diện người dùng chính
-                FXMLLoader fxmlLoader;
-                Parent root;
-                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                Scene scene;
+//                FXMLLoader fxmlLoader;
+//                Parent root;
+//                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//                Scene scene;
 
                 switch (a.getType()) {
                     case customer:
+
                         // Xử lý xuất hiện màn hình khách hàng
-                        fxmlLoader = new FXMLLoader(App.class.getResource("FMain.fxml"));
-                        root = fxmlLoader.load();
+                        CustomerService cS = new CustomerService();
+                        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-                        FMainController mainCtrl = fxmlLoader.getController();
-                        mainCtrl.getCustomerData(a.getUserID());
-                        mainCtrl.loadMenuButton(true);
-
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.setTitle("Hotel del Luna - Main page");
-                        stage.show();
+                        CustomerService.customer = cS.getCustomerData(a.getUserID());
+                        App.setRoot("FMain");
+                        stage.sizeToScene();
 
                         Utils.centerScreen(stage);
                         break;
 
                     case employee:
-                        // Xử lý xuất hiện màn hình nhân viên
-                        fxmlLoader = new FXMLLoader(App.class.getResource("FMainEmployee.fxml"));
-                        root = fxmlLoader.load();
-
-                        FMainEmployeeController emCtrl = fxmlLoader.getController();
-                        emCtrl.getEmployeeData(a.getUserID());
-                        emCtrl.loadMenuButton(true);
-
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.setTitle("Hotel del Luna - Main employee page");
-                        stage.show();
-
-                        Utils.centerScreen(stage);
+//                        // Xử lý xuất hiện màn hình nhân viên
+//                        fxmlLoader = new FXMLLoader(App.class.getResource("FMainEmployee.fxml"));
+//                        root = fxmlLoader.load();
+//
+//                        FMainEmployeeController emCtrl = fxmlLoader.getController();
+//                        emCtrl.getEmployeeData(a.getUserID());
+//                        emCtrl.loadMenuButton(true);
+//
+//                        scene = new Scene(root);
+//                        stage.setScene(scene);
+//                        stage.setTitle("Hotel del Luna - Main employee page");
+//                        stage.show();
+//
+//                        Utils.centerScreen(stage);
                         break;
                 }
             }

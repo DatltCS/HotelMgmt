@@ -17,6 +17,8 @@ import java.sql.SQLException;
  * @author prodi
  */
 public class CustomerService {
+    public static Customer customer = new Customer();
+
     public Customer getCustomerData(String userID) throws SQLException {
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("SELECT * FROM customers WHERE UserID = ?");
