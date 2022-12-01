@@ -5,14 +5,8 @@
 package com.linhvu.conf;
 
 import com.linhvu.hotelmgmt.*;
-import com.linhvu.pojo.Customer;
 import com.linhvu.pojo.Employee;
-import com.linhvu.services.CustomerService;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -93,73 +87,39 @@ public class Utils {
         menuBtn.getItems().add(itemSignOut);
 
         itemMain.setOnAction(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FMainEmployee.fxml"));
-            Parent root = null;
             try {
-                root = fxmlLoader.load();
+                App.setRoot("FMainEmployee");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            FMainEmployeeController mainEmCtrl = fxmlLoader.getController();
-            mainEmCtrl.getEmployee(employee);
-            mainEmCtrl.loadMenuButton(false);
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
         });
 
+        // Check in, check out guest
         itemGuest.setOnAction(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FCheckin.fxml"));
-            Parent root = null;
             try {
-                root = fxmlLoader.load();
+                App.setRoot("FCheckin");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            FCheckinController checkinCtrl = fxmlLoader.getController();
-            checkinCtrl.getEmployee(employee);
-            checkinCtrl.loadMenuButton(false);
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
         });
 
+        // Add, delete a service from customer booking
         itemBooking.setOnAction(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FServicesEmployee.fxml"));
-            Parent root = null;
             try {
-                root = fxmlLoader.load();
+                App.setRoot("FServicesEmployee");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            FServicesEmployeeController secCtrl = fxmlLoader.getController();
-            secCtrl.getEmployee(employee);
-            secCtrl.loadMenuButton(false);
-
-            Scene scene = new Scene(root);
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
         });
 
         itemSignOut.setOnAction(event -> {
-            Scene scene = null;
+            Stage stage = (Stage)menuBtn.getScene().getWindow();
             try {
-                scene = new Scene(new FXMLLoader(App.class.getResource("FLogin.fxml")).load());
+                App.setRoot("FLogin");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Stage stage = (Stage)menuBtn.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setTitle("Hotel del Luna - Sign in");
-            stage.show();
+            stage.sizeToScene();
             Utils.centerScreen(stage);
         });
     }

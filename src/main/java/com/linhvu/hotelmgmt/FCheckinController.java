@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
-import com.linhvu.pojo.Employee;
+import com.linhvu.services.EmployeeService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -30,28 +30,22 @@ public class FCheckinController implements Initializable {
     @FXML Button btnCheckout;
     @FXML Button btnCancel;
 
-    private Employee e;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if ((long) menuBtn.getItems().size() < 1)
-            loadMenuButton(false);
-    }
-
-    public void getEmployee(Employee emp) {
-        this.e = emp;
+            loadMenuButton(true);
     }
 
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
-        if (!key) {
-            this.menuBtn.setText("TESTING");
-            Utils.loadEmployeeMenuItem(menuBtn, this.e);
+        if (key) {
+            this.menuBtn.setText("Welcome, " + EmployeeService.employee.getfName());
+            Utils.loadEmployeeMenuItem(menuBtn, EmployeeService.employee);
         }
         else
-            this.menuBtn.setText("Welcome, " + e.getfName());
+            this.menuBtn.setText("TESTING");
     }
 }

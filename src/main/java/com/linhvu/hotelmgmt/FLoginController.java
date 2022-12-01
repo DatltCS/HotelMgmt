@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.linhvu.services.CustomerService;
+import com.linhvu.services.EmployeeService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -83,40 +84,26 @@ public class FLoginController implements Initializable {
 
             if (as.validateLogin(a)) {
                 // xử lý chuyển sang giao diện người dùng chính
-//                FXMLLoader fxmlLoader;
-//                Parent root;
-//                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                Scene scene;
-
+                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 switch (a.getType()) {
                     case customer:
-
                         // Xử lý xuất hiện màn hình khách hàng
                         CustomerService cS = new CustomerService();
-                        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
                         CustomerService.customer = cS.getCustomerData(a.getUserID());
                         App.setRoot("FMain");
                         stage.sizeToScene();
-
                         Utils.centerScreen(stage);
+
                         break;
 
                     case employee:
 //                        // Xử lý xuất hiện màn hình nhân viên
-//                        fxmlLoader = new FXMLLoader(App.class.getResource("FMainEmployee.fxml"));
-//                        root = fxmlLoader.load();
-//
-//                        FMainEmployeeController emCtrl = fxmlLoader.getController();
-//                        emCtrl.getEmployeeData(a.getUserID());
-//                        emCtrl.loadMenuButton(true);
-//
-//                        scene = new Scene(root);
-//                        stage.setScene(scene);
-//                        stage.setTitle("Hotel del Luna - Main employee page");
-//                        stage.show();
-//
-//                        Utils.centerScreen(stage);
+                        EmployeeService eS = new EmployeeService();
+                        EmployeeService.employee = eS.getEmployeeData(a.getUserID());
+                        App.setRoot("FMainEmployee");
+                        stage.sizeToScene();
+                        Utils.centerScreen(stage);
+
                         break;
                 }
             }
