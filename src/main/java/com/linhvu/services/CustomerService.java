@@ -7,10 +7,7 @@ package com.linhvu.services;
 import com.linhvu.conf.JdbcUtils;
 import com.linhvu.pojo.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
@@ -28,12 +25,31 @@ public class CustomerService {
 
             Customer c = null;
             while (rs.next()) {
-                c = new Customer(rs.getInt("CustomerID"), userID,
+                c = new Customer(userID,
                         rs.getString("FirstName"), rs.getString("LastName"),
-                        rs.getDate("Birthday"), rs.getString("PhoneNum"),
+                        rs.getDate("Birthday").toLocalDate(), rs.getString("PhoneNum"),
                         rs.getString("Email"), rs.getString("Address"));
+                c.setCustomerID(rs.getInt("CustomerID"));
             }
             return c;
+        }
+    }
+
+    public boolean addCustomerData(Customer c) throws SQLException {
+        try (Connection conn = JdbcUtils.getConn()) {
+            Date bday = Date.valueOf(c.getBirthday());
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO customers (UserID, FirstName, LastName, Birthday, PhoneNum) " +
+                                                                "VALUES(?, ?, ?, ?, ?)");
+            stm.setString(1, c.getUserID());
+            stm.setString(2, c.getfName());
+            stm.setString(3, c.getlName());
+            stm.setDate(4, bday);
+            stm.setString(5, c.getPhoneNum());
+
+            int rs = stm.executeUpdate();
+            if (rs == 0)
+                return false;
+            return true;
         }
     }
 }

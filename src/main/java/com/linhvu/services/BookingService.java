@@ -4,10 +4,12 @@
  */
 package com.linhvu.services;
 
+import com.linhvu.pojo.Booking;
+
 /**
  *
  * @author prodi
  */
 public class BookingService {
-    
+    public static Booking booking = new Booking();
 }

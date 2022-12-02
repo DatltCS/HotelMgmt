@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -19,19 +18,15 @@
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1024.0" styleClass="nav-bar">
          <children>
             <Label prefHeight="53.0" prefWidth="182.0" styleClass="logo" text="DEL LUNA" />
-            <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="500.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="436.0" spacing="10.0">
                <children>
                   <DatePicker fx:id="dtCheckin" editable="false" promptText="Check-in" styleClass="date-pk-small" />
                   <DatePicker fx:id="dtCheckout" promptText="Check-out" styleClass="date-pk-small" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="260.0" spacing="20.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="324.0" spacing="20.0">
                <children>
-                  <MenuButton fx:id="menuBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="44.0" prefWidth="260.0" text="Welcome user!" textAlignment="RIGHT" textFill="WHITE" underline="true">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
+                  <MenuButton fx:id="menuBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="44.0" textAlignment="RIGHT" textFill="WHITE" underline="true">
                      <font>
                         <Font size="20.0" />
                      </font>

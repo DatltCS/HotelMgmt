@@ -28,6 +28,13 @@ public class Account {
     public Account() {
     }
 
+    public Account(String userID, String userPass, AccountType type) {
+        this.userID = userID;
+        this.userPass = userPass;
+        this.type = type;
+        this.status = AccountStatus.active;
+    }
+
     /**
      * @return the userID
      */

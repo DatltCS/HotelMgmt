@@ -44,7 +44,7 @@
                <children>
                   <DatePicker fx:id="dateCheckin" editable="false" promptText="Check-in" />
                   <DatePicker fx:id="dateCheckout" promptText="Check-out" />
-                  <Button fx:id="btnSearch" mnemonicParsing="false" styleClass="btn-search" text="Search" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchClick" styleClass="btn-search" text="Search" />
                </children>
             </HBox>
          </children>

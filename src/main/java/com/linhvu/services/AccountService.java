@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * @author prodi
  */
 public class AccountService {
-    public void createAccount(Account acc) throws SQLException {
+    public boolean addAccountData(Account acc) throws SQLException {
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("INSERT INTO accounts (UserID, UserPass, AccountType, AccountStatus) VALUES(?, ?, ?, ?)");
             stm.setString(1, acc.getUserID());
@@ -24,7 +24,10 @@ public class AccountService {
             stm.setString(3, "customer");
             stm.setString(4, "active");
 
-            stm.executeUpdate();
+            int rs = stm.executeUpdate();
+            if (rs == 0)
+                return false;
+            return true;
         }
     }
 

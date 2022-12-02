@@ -4,6 +4,7 @@
  */
 package com.linhvu.pojo;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ public class Customer {
     private String userID;
     private String fName;
     private String lName;
-    private Date birthday;
+    private LocalDate birthday;
     private String phoneNum;
     private String email;
     private String address;
@@ -23,8 +24,15 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int customerID, String userID, String fName, String lName, Date birthday, String phoneNum, String email, String address) {
-        this.customerID = customerID;
+    public Customer(String userID, String fName, String lName, LocalDate birthday, String phoneNum) {
+        this.userID = userID;
+        this.fName = fName;
+        this.lName = lName;
+        this.birthday = birthday;
+        this.phoneNum = phoneNum;
+    }
+
+    public Customer(String userID, String fName, String lName, LocalDate birthday, String phoneNum, String email, String address) {
         this.userID = userID;
         this.fName = fName;
         this.lName = lName;
@@ -93,14 +101,14 @@ public class Customer {
     /**
      * @return the birthday
      */
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
     /**
      * @param birthday the birthday to set
      */
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

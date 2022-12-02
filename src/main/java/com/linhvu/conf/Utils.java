@@ -10,9 +10,18 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import javafx.util.converter.LocalDateStringConverter;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Date;
 
 /**
  *
@@ -133,5 +142,37 @@ public class Utils {
                 setDisable(b || localDate.compareTo(LocalDate.now()) < 0);
             }
         });
+
+        // set format của ngày tháng năm về định dạng dd/MMM/yyyy
+        dtParam.setConverter(new StringConverter<LocalDate>() {
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
+
+            @Override
+            public String toString(LocalDate date) {
+                if (date != null) {
+                    return dateFormatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, dateFormatter);
+                } else {
+                    return null;
+                }
+            }
+        });
+    }
+
+    public static Date convertDPtoDate(DatePicker dtPicker) {
+        return Date.from(dtPicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+//        return Date.from(Instant.from(dtPicker.getValue()));
+    }
+
+    public static LocalDate convertDatetoDP(Date date) {
+        return new LocalDateStringConverter(FormatStyle.MEDIUM).fromString(date.toString());
     }
 }

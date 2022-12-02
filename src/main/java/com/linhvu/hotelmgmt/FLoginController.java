@@ -77,7 +77,6 @@ public class FLoginController implements Initializable {
 
             Account a = new Account();
             AccountService as = new AccountService();
-
             a.setUserID(this.txtID.getText());
             a.setUserPass(this.txtPassword.getText());
             a.setType(this.cbUserType.getValue());
@@ -93,7 +92,6 @@ public class FLoginController implements Initializable {
                         App.setRoot("FMain");
                         stage.sizeToScene();
                         Utils.centerScreen(stage);
-
                         break;
 
                     case employee:
@@ -103,7 +101,6 @@ public class FLoginController implements Initializable {
                         App.setRoot("FMainEmployee");
                         stage.sizeToScene();
                         Utils.centerScreen(stage);
-
                         break;
                 }
             }

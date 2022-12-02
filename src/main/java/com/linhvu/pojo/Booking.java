@@ -4,6 +4,7 @@
  */
 package com.linhvu.pojo;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -21,14 +22,18 @@ public class Booking {
     
     private int bookingID;
     private Date createDate;
-    private Date stateDate;
-    private Date endDate;
+    private LocalDate stateDate;
+    private LocalDate endDate;
     private BookingStatus status;
     private int customerID;
 
     public Booking() {
     }
-    
+
+    public Booking(LocalDate stateDate, LocalDate endDate) {
+        this.stateDate = stateDate;
+        this.endDate = endDate;
+    }
 
     /**
      * @return the bookingID
@@ -61,28 +66,28 @@ public class Booking {
     /**
      * @return the stateDate
      */
-    public Date getStateDate() {
+    public LocalDate getStateDate() {
         return stateDate;
     }
 
     /**
      * @param stateDate the stateDate to set
      */
-    public void setStateDate(Date stateDate) {
+    public void setStateDate(LocalDate stateDate) {
         this.stateDate = stateDate;
     }
 
     /**
      * @return the endDate
      */
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
     /**
      * @param endDate the endDate to set
      */
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

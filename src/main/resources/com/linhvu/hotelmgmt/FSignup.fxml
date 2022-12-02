@@ -41,13 +41,12 @@
                </font>
             </TextField>
             <PasswordField fx:id="pfPass" promptText="Password" styleClass="input" />
-            <PasswordField fx:id="pfConfirmPass" promptText="Confirm Password" styleClass="input" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error" text="*this is the error message*" visible="false" wrappingWidth="185.609375" />
          </children>
       </VBox>
       <VBox alignment="CENTER" prefHeight="77.0" prefWidth="270.0">
          <children>
-            <Button fx:id="btnSignup" mnemonicParsing="false" prefHeight="34.0" prefWidth="270.0" styleClass="signup" text="Sign Up">
+            <Button fx:id="btnSignup" mnemonicParsing="false" onAction="#btnSignupClick" prefHeight="34.0" prefWidth="270.0" styleClass="signup" text="Sign Up">
                <font>
                   <Font size="24.0" />
                </font>

@@ -4,13 +4,16 @@
  */
 package com.linhvu.hotelmgmt;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
-import com.linhvu.pojo.Customer;
+import com.linhvu.pojo.Booking;
+import com.linhvu.services.BookingService;
 import com.linhvu.services.CustomerService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,9 +48,11 @@ public class FMainController implements Initializable {
         dateCheckout.valueProperty().addListener((observableValue, localDate, t1) -> reinitDtCheckin());
     }
 
-    public void btnSearchClick(ActionEvent event) {
+    public void btnSearchClick(ActionEvent event) throws IOException {
         // TODO: lấy + truyền dữ liệu ngày sang form Search, mở FSearch
-        // Cần truyền: startDate, endDate, userID
+        // Cần truyền: startDate, endDate
+//        BookingService.booking = new Booking(Date.from(Instant.from(dateCheckin.getValue())), Date.from(Instant.from(dateCheckout.getValue())));
+        App.setRoot("FSearch");
     }
 
     public void loadMenuButton(boolean key) {
@@ -78,4 +83,6 @@ public class FMainController implements Initializable {
             }
         });
     }
+
+
 }
