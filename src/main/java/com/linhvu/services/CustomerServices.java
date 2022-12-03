@@ -13,7 +13,7 @@ import java.sql.*;
  *
  * @author prodi
  */
-public class CustomerService {
+public class CustomerServices {
     public static Customer customer = new Customer();
 
     public Customer getCustomerData(String userID) throws SQLException {

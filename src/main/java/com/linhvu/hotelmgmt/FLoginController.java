@@ -7,15 +7,15 @@ package com.linhvu.hotelmgmt;
 import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Account;
 import com.linhvu.pojo.Account.AccountType;
-import com.linhvu.services.AccountService;
+import com.linhvu.services.AccountServices;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import com.linhvu.services.CustomerService;
-import com.linhvu.services.EmployeeService;
+import com.linhvu.services.CustomerServices;
+import com.linhvu.services.EmployeeServices;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,7 +76,7 @@ public class FLoginController implements Initializable {
             this.errorText.setText(" ");
 
             Account a = new Account();
-            AccountService as = new AccountService();
+            AccountServices as = new AccountServices();
             a.setUserID(this.txtID.getText());
             a.setUserPass(this.txtPassword.getText());
             a.setType(this.cbUserType.getValue());
@@ -87,8 +87,8 @@ public class FLoginController implements Initializable {
                 switch (a.getType()) {
                     case customer:
                         // Xử lý xuất hiện màn hình khách hàng
-                        CustomerService cS = new CustomerService();
-                        CustomerService.customer = cS.getCustomerData(a.getUserID());
+                        CustomerServices cS = new CustomerServices();
+                        CustomerServices.customer = cS.getCustomerData(a.getUserID());
                         App.setRoot("FMain");
                         stage.sizeToScene();
                         Utils.centerScreen(stage);
@@ -96,8 +96,8 @@ public class FLoginController implements Initializable {
 
                     case employee:
 //                        // Xử lý xuất hiện màn hình nhân viên
-                        EmployeeService eS = new EmployeeService();
-                        EmployeeService.employee = eS.getEmployeeData(a.getUserID());
+                        EmployeeServices eS = new EmployeeServices();
+                        EmployeeServices.employee = eS.getEmployeeData(a.getUserID());
                         App.setRoot("FMainEmployee");
                         stage.sizeToScene();
                         Utils.centerScreen(stage);

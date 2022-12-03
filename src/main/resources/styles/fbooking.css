@@ -26,3 +26,7 @@ VBox {
 VBox HBox {
     -fx-font-size: 18;
 }
+
+.combo-box .combo-box-popup .list-view, .combo-box .combo-box-popup .list-cell {
+  -fx-text-fill: #003E8C;
+}

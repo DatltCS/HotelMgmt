@@ -6,15 +6,13 @@ package com.linhvu.hotelmgmt;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Booking;
-import com.linhvu.services.BookingService;
-import com.linhvu.services.CustomerService;
+import com.linhvu.services.BookingServices;
+import com.linhvu.services.CustomerServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -51,14 +49,14 @@ public class FMainController implements Initializable {
     public void btnSearchClick(ActionEvent event) throws IOException {
         // TODO: lấy + truyền dữ liệu ngày sang form Search, mở FSearch
         // Cần truyền: startDate, endDate
-//        BookingService.booking = new Booking(Date.from(Instant.from(dateCheckin.getValue())), Date.from(Instant.from(dateCheckout.getValue())));
+        BookingServices.booking = new Booking(dateCheckin.getValue(), dateCheckout.getValue());
         App.setRoot("FSearch");
     }
 
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
         if (key) {
-            this.menuBtn.setText("Welcome, " + CustomerService.customer.getfName());
+            this.menuBtn.setText("Welcome, " + CustomerServices.customer.getfName());
             Utils.loadCustomerMenuItem(menuBtn);
         } else
             this.menuBtn.setText("TESTING");

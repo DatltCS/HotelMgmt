@@ -63,7 +63,6 @@
     -fx-border-radius: 10;
     -fx-border-width: 2;
     -fx-border-color: #0070FF;
-    -fx-padding: 20;
     -fx-text-fill: black;
 }
 
@@ -85,6 +84,9 @@
     -fx-background-color: white;
     -fx-cursor: hand;
     -fx-text-fill: #0E75F8;
+}
+
+.btn-room:hover {
 }
 
 .txt-search {

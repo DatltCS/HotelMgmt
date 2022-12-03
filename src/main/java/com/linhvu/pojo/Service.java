@@ -19,7 +19,13 @@ public class Service {
 
     public Service() {
     }
-    
+
+    public Service(int serviceID, String serviceName, BigDecimal pricePerHour, Date isDeleted) {
+        this.serviceID = serviceID;
+        this.serviceName = serviceName;
+        this.pricePerHour = pricePerHour;
+        this.isDeleted = isDeleted;
+    }
 
     /**
      * @return the serviceID

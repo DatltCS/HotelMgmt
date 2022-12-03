@@ -5,13 +5,19 @@
 package com.linhvu.hotelmgmt;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.linhvu.pojo.Booking;
+import com.linhvu.services.ServiceServices;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
+
+import org.controlsfx.control.CheckComboBox;
 
 /**
  * FXML Controller class
@@ -24,16 +30,28 @@ public class FBookingController implements Initializable {
     @FXML Text txtCheckin;
     @FXML Text txtCheckout;
     @FXML Text txtPrice;
-    @FXML ComboBox cbServices;
+    @FXML CheckComboBox<String> cbServices;
     @FXML Text txtTotal;
     @FXML Button btnFinish;
+
+    private Booking book;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        ServiceServices sS = new ServiceServices();
+        try {
+            ObservableList<String> servicesName = FXCollections.observableArrayList(sS.getServiceNameList());
+            cbServices.getItems().addAll(servicesName);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setData(Booking b) {
+        this.book = b;
+    }
     
 }

@@ -5,12 +5,10 @@
 package com.linhvu.hotelmgmt;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
-import com.linhvu.pojo.Customer;
-import com.linhvu.services.CustomerService;
+import com.linhvu.services.CustomerServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -61,7 +59,7 @@ public class FServicesController implements Initializable {
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
         if (key) {
-            this.menuBtn.setText("Welcome, " + CustomerService.customer.getfName());
+            this.menuBtn.setText("Welcome, " + CustomerServices.customer.getfName());
             Utils.loadCustomerMenuItem(menuBtn);
         } else
             this.menuBtn.setText("TESTING");

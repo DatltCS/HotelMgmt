@@ -16,7 +16,7 @@ import java.sql.SQLException;
  *
  * @author prodi
  */
-public class EmployeeService {
+public class EmployeeServices {
     public static Employee employee = new Employee();
 
     public Employee getEmployeeData(String userID) throws SQLException {

@@ -4,19 +4,29 @@
  */
 package com.linhvu.hotelmgmt;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
-import com.linhvu.services.BookingService;
-import com.linhvu.services.CustomerService;
+import com.linhvu.pojo.Room;
+import com.linhvu.services.BookingServices;
+import com.linhvu.services.CustomerServices;
+import com.linhvu.services.RoomServices;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -29,6 +39,10 @@ public class FSearchController implements Initializable {
     @FXML MenuButton menuBtn;
     @FXML GridPane gpResult;
 
+    private List<Room> rooms = new ArrayList<>();
+
+    RoomServices rS = new RoomServices();
+
     /**
      * Initializes the controller class.
      */
@@ -40,6 +54,11 @@ public class FSearchController implements Initializable {
         // init DatePicker
         Utils.initDatePicker(dtCheckin);
         Utils.initDatePicker(dtCheckout);
+        dtCheckin.setValue(BookingServices.booking.getStateDate());
+        dtCheckout.setValue(BookingServices.booking.getEndDate());
+
+        if (BookingServices.booking.getStateDate() != null || BookingServices.booking.getEndDate() != null)
+            loadSearchItem();
 
         // Định dạng lại điều kiện của DatePicker mỗi khi có ngày được chọn
         dtCheckin.valueProperty().addListener((observableValue, localDate, t1) -> reinitDtCheckout());
@@ -49,10 +68,50 @@ public class FSearchController implements Initializable {
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
         if (key) {
-            this.menuBtn.setText("Welcome, " + CustomerService.customer.getfName());
+            this.menuBtn.setText("Welcome, " + CustomerServices.customer.getfName());
             Utils.loadCustomerMenuItem(menuBtn);
         } else
             this.menuBtn.setText("TESTING");
+    }
+
+    public void loadSearchItem() {
+        rooms.clear();
+        try {
+            rooms.addAll(rS.getRoomList(dtCheckin.getValue(), dtCheckout.getValue()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        int row = 1, col = 0;
+        try {
+            for (int i = 0; i < rooms.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FSearchItem.fxml"));
+                VBox pane = fxmlLoader.load();
+
+                FSearchItemController itemCtrl = fxmlLoader.getController();
+                itemCtrl.setData(rooms.get(i));
+
+                if (col == 2) {
+                    col = 0;
+                    row++;
+                }
+
+                gpResult.add(pane, col++, row, 1, 1);
+                //set grid width
+                gpResult.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gpResult.setPrefWidth(800);
+                gpResult.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                gpResult.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gpResult.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gpResult.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(pane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void reinitDtCheckout() {

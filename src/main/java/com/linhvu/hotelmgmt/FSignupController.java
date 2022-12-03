@@ -5,22 +5,17 @@
 package com.linhvu.hotelmgmt;
 
 import java.net.URL;
-import java.nio.channels.spi.AbstractInterruptibleChannel;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Account;
 import com.linhvu.pojo.Customer;
-import com.linhvu.services.AccountService;
-import com.linhvu.services.CustomerService;
+import com.linhvu.services.AccountServices;
+import com.linhvu.services.CustomerServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -41,7 +36,7 @@ public class FSignupController implements Initializable {
     @FXML PasswordField pfPass;
     @FXML Button btnSignup;
 
-    AccountService aS = new AccountService();
+    AccountServices aS = new AccountServices();
 
     /**
      * Initializes the controller class.
@@ -93,8 +88,8 @@ public class FSignupController implements Initializable {
             Customer c = new Customer(a.getUserID(), txtfFName.getText(), txtfLName.getText(), dpBirthday.getValue(), txtfPhone.getText());
 
             // Kiểm tra tính bảo mật của password
-            AccountService aS = new AccountService();
-            CustomerService cS = new CustomerService();
+            AccountServices aS = new AccountServices();
+            CustomerServices cS = new CustomerServices();
             int passCheck = aS.validatePassword(a.getUserPass());
             if (passCheck != 1) {
                 switch(passCheck) {

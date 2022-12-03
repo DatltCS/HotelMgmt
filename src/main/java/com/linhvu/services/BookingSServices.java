@@ -8,6 +8,8 @@ package com.linhvu.services;
  *
  * @author prodi
  */
-public class FoodService {
+
+// Service class for BookingService
+public class BookingSServices {
     
 }

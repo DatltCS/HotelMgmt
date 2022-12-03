@@ -4,13 +4,28 @@
  */
 package com.linhvu.hotelmgmt;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.linhvu.pojo.Booking;
+import com.linhvu.pojo.BookingService;
+import com.linhvu.pojo.Room;
+import com.linhvu.services.BookingServices;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -22,13 +37,44 @@ public class FSearchItemController implements Initializable {
     @FXML Label lbRoomName;
     @FXML Label lbPrice;
     @FXML Text txtDescription;
+    @FXML Button btnRoom;
+
+    private Room room;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        btnRoom.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FBooking.fxml"));
+                FBookingController bookCtrl = fxmlLoader.getController();
+
+                Parent root = null;
+                try {
+                    root = fxmlLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+
+                // điều chỉnh không cho phép tương tác với login khi đang mở sign-up
+                stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.show();
+            }
+        });
+    }
+
+    public void setData(Room r) {
+        this.room = r;
+        lbRoomNum.setText(String.valueOf(r.getRoomID()));
+        lbRoomName.setText(r.getRoomName());
+        lbPrice.setText(String.valueOf(r.getPricePerDay()));
+        txtDescription.setText(r.getDescription());
+    }
 }

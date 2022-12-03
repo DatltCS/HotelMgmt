@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
-import com.linhvu.services.EmployeeService;
+import com.linhvu.services.EmployeeServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,8 +59,8 @@ public class FMainEmployeeController implements Initializable {
     public void loadMenuButton(boolean key) {
         // key -> đánh dấu đã xác thực đăng nhập hay chưa
         if (key) {
-            this.menuBtn.setText("Welcome, " + EmployeeService.employee.getfName());
-            Utils.loadEmployeeMenuItem(menuBtn, EmployeeService.employee);
+            this.menuBtn.setText("Welcome, " + EmployeeServices.employee.getfName());
+            Utils.loadEmployeeMenuItem(menuBtn, EmployeeServices.employee);
         }
         else
             this.menuBtn.setText("TESTING");

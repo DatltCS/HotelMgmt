@@ -11,25 +11,26 @@ import java.math.BigDecimal;
  * @author prodi
  */
 public class Room {
-    public enum RoomStatus {
-        available,
-        reserved,
-        occupied,
-        other
-    }
-    
     private int roomID;
     private String roomName;
     private BigDecimal pricePerDay;
     private boolean allowSmoking;
     private int singleBed;
     private int doubleBed;
-    private RoomStatus status;
     private String description;
 
     public Room() {
     }
-    
+
+    public Room(int roomID, String roomName, BigDecimal pricePerDay, boolean allowSmoking, int singleBed, int doubleBed, String description) {
+        this.roomID = roomID;
+        this.roomName = roomName;
+        this.pricePerDay = pricePerDay;
+        this.allowSmoking = allowSmoking;
+        this.singleBed = singleBed;
+        this.doubleBed = doubleBed;
+        this.description = description;
+    }
 
     /**
      * @return the roomID
@@ -113,20 +114,6 @@ public class Room {
      */
     public void setDoubleBed(int doubleBed) {
         this.doubleBed = doubleBed;
-    }
-
-    /**
-     * @return the status
-     */
-    public RoomStatus getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(RoomStatus status) {
-        this.status = status;
     }
 
     /**

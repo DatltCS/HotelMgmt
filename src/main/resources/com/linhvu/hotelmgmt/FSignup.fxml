@@ -34,7 +34,7 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="dpBirthday" prefHeight="30.0" prefWidth="274.0" promptText="Birthday" />
+            <DatePicker fx:id="dpBirthday" editable="false" prefHeight="30.0" prefWidth="274.0" promptText="Birthday" />
             <TextField fx:id="txtfPhone" prefHeight="30.0" prefWidth="264.0" promptText="Phone" styleClass="input">
                <font>
                   <Font size="16.0" />

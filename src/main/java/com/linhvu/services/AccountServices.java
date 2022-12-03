@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  * @author prodi
  */
-public class AccountService {
+public class AccountServices {
     public boolean addAccountData(Account acc) throws SQLException {
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("INSERT INTO accounts (UserID, UserPass, AccountType, AccountStatus) VALUES(?, ?, ?, ?)");
