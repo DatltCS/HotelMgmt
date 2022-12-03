@@ -4,6 +4,14 @@
  */
 package com.linhvu.services;
 
+import com.linhvu.conf.JdbcUtils;
+import com.linhvu.pojo.Booking;
+import com.linhvu.pojo.Service;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  *
  * @author prodi
@@ -11,5 +19,16 @@ package com.linhvu.services;
 
 // Service class for BookingService
 public class BookingSServices {
-    
+    public void addNewBookingService(Booking booking, Service service) {
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO booking_services (BookingID, ServiceID) " +
+                    "VALUES (?, ?)");
+            stm.setInt(1, booking.getBookingID());
+            stm.setInt(2, service.getServiceID());
+
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

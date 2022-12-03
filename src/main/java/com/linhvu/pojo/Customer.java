@@ -5,7 +5,6 @@
 package com.linhvu.pojo;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *

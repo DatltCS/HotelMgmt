@@ -4,10 +4,29 @@
  */
 package com.linhvu.services;
 
+import com.linhvu.conf.JdbcUtils;
+import com.linhvu.pojo.Booking;
+import com.linhvu.pojo.Room;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  *
  * @author prodi
  */
 public class BookingRoomServices {
-    
+    public void addNewBookingRoom(Booking booking, Room room) {
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO booking_room (BookingID, RoomID) " +
+                    "VALUES (?, ?)");
+            stm.setInt(1, booking.getBookingID());
+            stm.setInt(2, room.getRoomID());
+
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

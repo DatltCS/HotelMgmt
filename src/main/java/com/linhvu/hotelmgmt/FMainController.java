@@ -49,8 +49,12 @@ public class FMainController implements Initializable {
     public void btnSearchClick(ActionEvent event) throws IOException {
         // TODO: lấy + truyền dữ liệu ngày sang form Search, mở FSearch
         // Cần truyền: startDate, endDate
-        BookingServices.booking = new Booking(dateCheckin.getValue(), dateCheckout.getValue());
-        App.setRoot("FSearch");
+        if (dateCheckin.getValue() == null || dateCheckout.getValue() == null)
+            Utils.getBox("Please fill out all field!", Alert.AlertType.ERROR).show();
+        else {
+            BookingServices.booking = new Booking(dateCheckin.getValue(), dateCheckout.getValue());
+            App.setRoot("FSearch");
+        }
     }
 
     public void loadMenuButton(boolean key) {

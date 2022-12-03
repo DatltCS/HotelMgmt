@@ -57,12 +57,19 @@ public class FSearchController implements Initializable {
         dtCheckin.setValue(BookingServices.booking.getStateDate());
         dtCheckout.setValue(BookingServices.booking.getEndDate());
 
-        if (BookingServices.booking.getStateDate() != null || BookingServices.booking.getEndDate() != null)
-            loadSearchItem();
+        loadSearchItem();
 
         // Định dạng lại điều kiện của DatePicker mỗi khi có ngày được chọn
-        dtCheckin.valueProperty().addListener((observableValue, localDate, t1) -> reinitDtCheckout());
-        dtCheckout.valueProperty().addListener((observableValue, localDate, t1) -> reinitDtCheckin());
+        dtCheckin.valueProperty().addListener((observableValue, localDate, t1) -> {
+            reinitDtCheckout();
+            BookingServices.booking.setStateDate(dtCheckin.getValue());
+            loadSearchItem();
+        });
+        dtCheckout.valueProperty().addListener((observableValue, localDate, t1) -> {
+            reinitDtCheckin();
+            BookingServices.booking.setEndDate(dtCheckout.getValue());
+            loadSearchItem();
+        });
     }
 
     public void loadMenuButton(boolean key) {

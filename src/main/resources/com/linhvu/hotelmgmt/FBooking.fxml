@@ -24,14 +24,14 @@
          <children>
             <HBox alignment="CENTER_LEFT" fillHeight="false" prefWidth="300.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room" wrappingWidth="150.0" />
-                  <Text fx:id="txtRoom" strokeType="OUTSIDE" strokeWidth="0.0" text="A.001" textAlignment="RIGHT" wrappingWidth="150.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID" wrappingWidth="150.0" />
+                  <Text fx:id="txtRoom" strokeType="OUTSIDE" strokeWidth="0.0" text="id" textAlignment="RIGHT" wrappingWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false" prefWidth="300.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type" wrappingWidth="150.0" />
-                  <Text fx:id="txtType" strokeType="OUTSIDE" strokeWidth="0.0" text="room-type" textAlignment="RIGHT" wrappingWidth="150.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Name" wrappingWidth="150.0" />
+                  <Text fx:id="txtName" strokeType="OUTSIDE" strokeWidth="0.0" text="name" textAlignment="RIGHT" wrappingWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false" prefWidth="300.0">
@@ -78,7 +78,7 @@
          <VBox.margin>
             <Insets bottom="10.0" top="10.0" />
          </VBox.margin></Line>
-      <Button fx:id="btnFinish" mnemonicParsing="false" prefHeight="34.0" prefWidth="300.0" styleClass="signup" text="FINISH BOOKING">
+      <Button fx:id="btnFinish" mnemonicParsing="false" onAction="#btnFinishClick" prefHeight="34.0" prefWidth="300.0" styleClass="signup" text="FINISH BOOKING">
          <font>
             <Font size="24.0" />
          </font>

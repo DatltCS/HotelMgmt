@@ -17,6 +17,8 @@ import java.util.List;
  * @author prodi
  */
 public class RoomServices {
+    public static Room room = new Room();
+
     public List<Room> getRoomList(LocalDate start, LocalDate end) throws SQLException {
         if (start == null && end == null)
             return null;

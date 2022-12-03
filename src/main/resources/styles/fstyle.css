@@ -87,6 +87,7 @@
 }
 
 .btn-room:hover {
+    -fx-text-fill: #003E8C;
 }
 
 .txt-search {

@@ -4,6 +4,7 @@
  */
 package com.linhvu.pojo;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -21,7 +22,7 @@ public class Booking {
     }
     
     private int bookingID;
-    private Date createDate;
+    private Timestamp createDate;
     private LocalDate stateDate;
     private LocalDate endDate;
     private BookingStatus status;
@@ -52,14 +53,14 @@ public class Booking {
     /**
      * @return the createDate
      */
-    public Date getCreateDate() {
+    public Timestamp getCreateDate() {
         return createDate;
     }
 
     /**
      * @param createDate the createDate to set
      */
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
