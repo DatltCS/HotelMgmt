@@ -36,6 +36,14 @@ public class Booking {
         this.endDate = endDate;
     }
 
+    public Booking(int bookingID, Timestamp createDate, LocalDate stateDate, LocalDate endDate, int customerID) {
+        this.bookingID = bookingID;
+        this.createDate = createDate;
+        this.stateDate = stateDate;
+        this.endDate = endDate;
+        this.customerID = customerID;
+    }
+
     /**
      * @return the bookingID
      */

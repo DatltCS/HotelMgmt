@@ -40,7 +40,8 @@ public class ServiceServices {
 
             Service s = null;
             while (rs.next()) {
-                s = new Service(rs.getInt("ServiceID"), rs.getString("Name"), rs.getBigDecimal("ChargePerHour"), rs.getDate("IsDeleted"));
+                s = new Service(rs.getInt("ServiceID"), rs.getString("Name"),
+                        rs.getBigDecimal("ChargePerHour"), rs.getDate("IsDeleted"));
                 services.add(s);
             }
         }

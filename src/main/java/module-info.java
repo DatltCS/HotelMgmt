@@ -7,5 +7,5 @@ module com.linhvu.hotelmgmt {
 
     opens com.linhvu.hotelmgmt to javafx.fxml;
     exports com.linhvu.hotelmgmt;
-//    exports com.linhvu.pojo;
+    exports com.linhvu.pojo;
 }
