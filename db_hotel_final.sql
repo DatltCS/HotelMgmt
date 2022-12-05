@@ -38,7 +38,7 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES ('040302010000','m3lik3milk@A','employee','active'),('060202008868','TanDat1410','customer','active'),('105936486424','NhutNam1450','customer','active'),('116436865540','Jessica0111','customer','active'),('119887461713','SinhTien7410','customer','active'),('185585708403','TanDat1410','customer','blacklisted'),('201062943795','Abcdefgh123','customer','active'),('240241484375','KinhKong753','customer','active'),('296701904069','HoangTau741','customer','active'),('297872950340','QuocTrung450','customer','active'),('314670700646','MyDuyen2304','customer','active'),('386842547181','HoangTu879','employe','active'),('414368063065','HinhChu4130','customer','active'),('466332040979','DuyKhang0501','customer','active'),('467547478989','TanDat1410','customer','close'),('605778767782','TanDat1410','employee','close'),('613664395310','MinhPhuc1234','customer','active'),('639987213568','TanDat1410','employee','active'),('881364984536','KhaiQuan451','customer','active'),('919147901061','ThanhHai7452','customer','active'),('950301000647','TanDat1410','employee','blacklisted');
+INSERT INTO `accounts` VALUES ('010203040506','TranAn@123','customer','active'),('040302010000','m3lik3milk@A','employee','active'),('040302011111','m3lik3milk@A','customer','active'),('040302015348','m3lik3milk','customer','active'),('060202008868','TanDat1410','customer','active'),('105936486424','NhutNam1450','customer','active'),('116436865540','Jessica0111','customer','active'),('119887461713','SinhTien7410','customer','active'),('185585708403','TanDat1410','customer','blacklisted'),('201062943795','Abcdefgh123','customer','active'),('240241484375','KinhKong753','customer','active'),('296701904069','HoangTau741','customer','active'),('297872950340','QuocTrung450','customer','active'),('314670700646','MyDuyen2304','customer','active'),('386842547181','HoangTu879','employe','active'),('414368063065','HinhChu4130','customer','active'),('466332040979','DuyKhang0501','customer','active'),('467547478989','TanDat1410','customer','close'),('605778767782','TanDat1410','employee','close'),('613664395310','MinhPhuc1234','customer','active'),('639987213568','TanDat1410','employee','active'),('881364984536','KhaiQuan451','customer','active'),('919147901061','ThanhHai7452','customer','active'),('950301000647','TanDat1410','employee','blacklisted');
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `booking` (
   PRIMARY KEY (`BookingID`),
   KEY `fk_booking_customers1_idx` (`CustomerID`),
   CONSTRAINT `fk_booking_customers1` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10021 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10027 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `booking` (
 
 LOCK TABLES `booking` WRITE;
 /*!40000 ALTER TABLE `booking` DISABLE KEYS */;
-INSERT INTO `booking` VALUES (10000,'2020-12-11 17:00:00.00','2020-12-12','2020-12-14','booked',1000),(10001,'2020-12-12 07:00:00.00','2020-12-12','2020-12-14','booked',1000),(10002,'2020-01-12 16:59:59.00','2020-02-01','2020-02-02','booked',1001),(10003,'2020-01-12 16:59:59.00','2020-02-01','2020-02-02','checked-in',1002),(10004,'2020-05-04 07:26:45.00','2020-05-04','2020-05-04','canceled',1002),(10005,'2020-11-30 13:11:01.00','2020-12-02','2020-12-10','checked-out',1004),(10006,'2021-10-14 14:14:10.00','2021-10-15','2021-10-19','abandoned',1003),(10007,'2018-04-29 11:41:54.00','2018-05-02','2018-05-10','booked',1005),(10008,'2018-12-30 17:00:00.00','2018-12-31','2019-01-02','checked-out',1005),(10009,'2022-05-12 03:13:12.00','2022-05-12','2020-05-15','abandoned',1009),(10010,'2019-09-04 21:00:08.00','2019-11-08','2020-12-01','checked-in',1008),(10011,'2018-12-11 18:00:00.00','2019-12-12','2019-12-14','abandoned',1001),(10012,'2017-02-01 10:25:10.00','2017-02-01','2017-02-09','checked-out',1006),(10013,'2016-12-31 17:01:02.00','2017-01-01','2020-01-10','booked',1010),(10014,'2016-12-10 13:40:12.00','2016-12-15','2016-12-16','checked-out',1010),(10015,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-in',1016),(10016,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-out',1015),(10017,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-in',1010),(10018,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','abandoned',1014),(10019,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-in',1012),(10020,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','canceled',1016);
+INSERT INTO `booking` VALUES (10000,'2020-12-11 17:00:00.00','2020-12-12','2020-12-14','checked-out',1000),(10001,'2020-12-12 07:00:00.00','2020-12-12','2020-12-14','checked-out',1000),(10002,'2020-01-12 16:59:59.00','2020-02-01','2020-02-02','checked-out',1001),(10003,'2020-01-12 16:59:59.00','2020-02-01','2020-02-02','checked-out',1002),(10004,'2020-05-04 07:26:45.00','2020-05-04','2020-05-04','canceled',1002),(10005,'2020-11-30 13:11:01.00','2020-12-02','2020-12-10','checked-out',1004),(10006,'2021-10-14 14:14:10.00','2021-10-15','2021-10-19','abandoned',1003),(10007,'2018-04-29 11:41:54.00','2018-05-02','2018-05-10','booked',1005),(10008,'2018-12-30 17:00:00.00','2018-12-31','2019-01-02','checked-out',1005),(10009,'2022-05-12 03:13:12.00','2022-05-12','2020-05-15','abandoned',1009),(10010,'2019-09-04 21:00:08.00','2019-11-08','2020-12-01','checked-in',1008),(10011,'2018-12-11 18:00:00.00','2019-12-12','2019-12-14','abandoned',1001),(10012,'2017-02-01 10:25:10.00','2017-02-01','2017-02-09','checked-out',1006),(10013,'2016-12-31 17:01:02.00','2017-01-01','2020-01-10','abandoned',1010),(10014,'2016-12-10 13:40:12.00','2016-12-15','2016-12-16','checked-out',1010),(10015,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-out',1016),(10016,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-out',1015),(10017,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-out',1010),(10018,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','abandoned',1014),(10019,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','checked-out',1012),(10020,'2016-11-30 13:12:38.00','2016-12-05','2016-12-07','canceled',1016),(10021,'2022-12-03 10:00:00.00','2022-12-14','2022-12-15','canceled',1017),(10022,'2022-12-03 10:00:00.00','2022-12-14','2022-12-15','canceled',1017),(10023,'2022-12-03 10:00:00.00','2022-12-14','2022-12-15','canceled',1017),(10024,'2022-12-03 07:39:25.58','2022-12-07','2022-12-10','booked',1017),(10025,'2022-12-03 07:45:13.67','2022-12-08','2022-12-27','booked',1017),(10026,'2022-12-05 03:01:04.77','2022-12-06','2022-12-09','booked',1017);
 /*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `booking_room` (
 
 LOCK TABLES `booking_room` WRITE;
 /*!40000 ALTER TABLE `booking_room` DISABLE KEYS */;
-INSERT INTO `booking_room` VALUES (10000,1),(10000,2),(10002,2),(10008,2),(10010,2),(10016,2),(10000,3),(10006,3),(10001,4),(10019,4),(10002,5),(10013,5),(10009,101),(10014,101),(10007,102),(10012,103),(10015,103),(10002,104),(10004,104),(10020,104),(10003,105),(10019,105),(10011,201),(10018,201),(10017,202),(10005,204),(10011,205);
+INSERT INTO `booking_room` VALUES (10000,1),(10000,2),(10002,2),(10008,2),(10010,2),(10016,2),(10000,3),(10006,3),(10025,3),(10001,4),(10019,4),(10002,5),(10013,5),(10009,101),(10014,101),(10024,101),(10007,102),(10026,102),(10012,103),(10015,103),(10002,104),(10004,104),(10020,104),(10003,105),(10019,105),(10011,201),(10018,201),(10017,202),(10005,204),(10011,205);
 /*!40000 ALTER TABLE `booking_room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +182,7 @@ CREATE TABLE `booking_services` (
 
 LOCK TABLES `booking_services` WRITE;
 /*!40000 ALTER TABLE `booking_services` DISABLE KEYS */;
-INSERT INTO `booking_services` VALUES (10000,1),(10004,1),(10017,1),(10000,2),(10002,2),(10009,2),(10017,2),(10000,3),(10003,3),(10017,3),(10007,4),(10003,5),(10004,5),(10015,5),(10010,6),(10005,7),(10017,7),(10020,8),(10004,9),(10007,9),(10011,9),(10013,9),(10017,9),(10000,10),(10007,10),(10010,10),(10020,10);
+INSERT INTO `booking_services` VALUES (10000,1),(10004,1),(10017,1),(10024,1),(10000,2),(10002,2),(10009,2),(10017,2),(10000,3),(10003,3),(10017,3),(10026,3),(10007,4),(10023,4),(10003,5),(10004,5),(10015,5),(10026,5),(10010,6),(10024,6),(10005,7),(10017,7),(10020,8),(10004,9),(10007,9),(10011,9),(10013,9),(10017,9),(10000,10),(10007,10),(10010,10),(10020,10),(10024,10);
 /*!40000 ALTER TABLE `booking_services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +205,7 @@ CREATE TABLE `customers` (
   PRIMARY KEY (`CustomerID`),
   KEY `fk_customers_accounts_idx` (`UserID`),
   CONSTRAINT `fk_customers_accounts` FOREIGN KEY (`UserID`) REFERENCES `accounts` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1017 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1020 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +214,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1000,'060202008868','Anh',' Huỳnh Nhật','2002-09-09','0985456210','lalala@gmail.com','TPHCM'),(1001,'105936486424','Anh','La Hoàng','2002-12-20','0123620589','AnhLaHoang@gmail.com','TPHCM'),(1002,'116436865540','Anh','Lý Hồng','2002-12-20','0452100361','anhlyhong@gmail.com','Hà Nội'),(1003,'119887461713','Anh','Phan Thị','2002-01-18','0216325944','anhphanthig@gmail.com','Hải Phòng'),(1004,'185585708403','Bình','Thòng Lệ','1992-12-05','0125630220','binhthongle@gmail.com','Vinh'),(1005,'201062943795','Cường','Nguyễn Quốc','1992-12-05','0236987452','cuongnguyenquoc@gmail.com','Đồng Nai'),(1006,'240241484375','Dung','Lưu Ngọc Thùy','1985-02-12','0112569874','dungluungocthuy@gmail.com','Tây Ninh'),(1007,'296701904069','Duy','Nguyễn Văn','2000-04-13','0985213694','duynguyenvan@gmail.com','Tây Ninh'),(1008,'297872950340','Dũng','Quánh Đại','1964-08-27','0123658940','dungquanhdai@gmail.com','Bình Thuận'),(1009,'314670700646','Đạt','Phạm Tiến','2001-09-27','0259874100','datphantien@gmail.com','Đà Lạt'),(1010,'386842547181','Đoan','Trần Thục','2002-09-27','0123456789','doantranthuc@gmail.com','Lâm Đồng'),(1011,'414368063065','Hà','Thiều Thị Thu','1896-07-04','0123502010','hathieuthithu@gmail.com','Bình Phước'),(1012,'466332040979','Hằng','Nguyễn Thúy','1987-04-05','0235103201','hangnguyenthuy@gmail.com','Cà Mau'),(1013,'467547478989','Hiếu','Lưu Công','1980-04-05','0125413697','hieuluucong@gmail.com','Tây Ninh'),(1014,'613664395310','Khánh','Hoàng Hà Minh','1998-10-04','0120000122','khanhHoanghaminh@gmail.com','Hà Tĩnh'),(1015,'881364984536','Tâm','Nguyễn Thị Ngọc','1993-01-01','0124985630','khanhHoanghaminh@gmail.com','Hà Tĩnh'),(1016,'919147901061','Uyên','Lê Phương','2002-10-31','0202332101','uyenlephuong@gmail.com','Bình Định');
+INSERT INTO `customers` VALUES (1000,'060202008868','Anh',' Huỳnh Nhật','2002-09-09','0985456210','lalala@gmail.com','TPHCM'),(1001,'105936486424','Anh','La Hoàng','2002-12-20','0123620589','AnhLaHoang@gmail.com','TPHCM'),(1002,'116436865540','Anh','Lý Hồng','2002-12-20','0452100361','anhlyhong@gmail.com','Hà Nội'),(1003,'119887461713','Anh','Phan Thị','2002-01-18','0216325944','anhphanthig@gmail.com','Hải Phòng'),(1004,'185585708403','Bình','Thòng Lệ','1992-12-05','0125630220','binhthongle@gmail.com','Vinh'),(1005,'201062943795','Cường','Nguyễn Quốc','1992-12-05','0236987452','cuongnguyenquoc@gmail.com','Đồng Nai'),(1006,'240241484375','Dung','Lưu Ngọc Thùy','1985-02-12','0112569874','dungluungocthuy@gmail.com','Tây Ninh'),(1007,'296701904069','Duy','Nguyễn Văn','2000-04-13','0985213694','duynguyenvan@gmail.com','Tây Ninh'),(1008,'297872950340','Dũng','Quánh Đại','1964-08-27','0123658940','dungquanhdai@gmail.com','Bình Thuận'),(1009,'314670700646','Đạt','Phạm Tiến','2001-09-27','0259874100','datphantien@gmail.com','Đà Lạt'),(1010,'386842547181','Đoan','Trần Thục','2002-09-27','0123456789','doantranthuc@gmail.com','Lâm Đồng'),(1011,'414368063065','Hà','Thiều Thị Thu','1896-07-04','0123502010','hathieuthithu@gmail.com','Bình Phước'),(1012,'466332040979','Hằng','Nguyễn Thúy','1987-04-05','0235103201','hangnguyenthuy@gmail.com','Cà Mau'),(1013,'467547478989','Hiếu','Lưu Công','1980-04-05','0125413697','hieuluucong@gmail.com','Tây Ninh'),(1014,'613664395310','Khánh','Hoàng Hà Minh','1998-10-04','0120000122','khanhHoanghaminh@gmail.com','Hà Tĩnh'),(1015,'881364984536','Tâm','Nguyễn Thị Ngọc','1993-01-01','0124985630','khanhHoanghaminh@gmail.com','Hà Tĩnh'),(1016,'919147901061','Uyên','Lê Phương','2002-10-31','0202332101','uyenlephuong@gmail.com','Bình Định'),(1017,'040302011111','Linh','Vũ','2002-11-29','0393617000','',NULL),(1018,'010203040506','An','Trần','2003-12-24','0123456789',NULL,NULL),(1019,'040302015348','Vũ','Linh','2022-11-29','0393617000',NULL,NULL);
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +293,6 @@ CREATE TABLE `room` (
   `AllowSmoking` tinyint NOT NULL,
   `SingleBed` int DEFAULT NULL,
   `DoubleBed` int DEFAULT NULL,
-  `Status` enum('available','reserved','occupied','other') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'available',
   `RoomName` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `Description` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`RoomID`),
@@ -308,7 +307,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES (1,1500000,0,0,1,'available','NK.001','Phòng dữ trữ'),(2,1500000,1,1,0,'available','NK.002',NULL),(3,123000,1,1,1,'available','NK.003','Phòng dành cho người thích học oop'),(4,120000,0,0,1,'available','NK.004','Phòng hút thuốc theo yêu cầu'),(5,250000,2,1,0,'occupied','NK.005',NULL),(101,3500000,1,2,3,'occupied','NK.101','Phòng gia đình'),(102,150000,1,1,0,'occupied','NK.102','Phòng độc thân'),(103,123000,0,1,1,'other','NK.103','Đang tu sửa'),(104,1200000,1,NULL,NULL,'occupied','NK.104','Đang thiết kế theo yêu cầu'),(105,1200000,0,2,2,'available','NK.105',NULL),(201,15000000,1,1,1,'reserved','NK.201','Phòng tổng thống'),(202,12000000,1,1,1,'reserved','NK.202','Phòng phó tổng thổng'),(203,10000000,0,2,2,'reserved','NK.203','Phòng thương gia'),(204,15000000,0,2,3,'reserved','NK.204','Phòng dành cho đoàn V.I.P'),(205,50000000,0,1,2,'reserved','NK.205','Khách V.I.P');
+INSERT INTO `room` VALUES (1,150000,0,0,1,'NK.001','Phòng dữ trữ'),(2,150000,1,1,0,'NK.002',NULL),(3,123000,1,1,1,'NK.003','Phòng dành cho người thích học oop'),(4,120000,0,0,1,'NK.004','Phòng hút thuốc theo yêu cầu'),(5,250000,2,1,0,'NK.005',NULL),(101,350000,1,2,3,'NK.101','Phòng gia đình'),(102,150000,1,1,0,'NK.102','Phòng độc thân'),(103,123000,0,1,1,'NK.103','Phòng thiết kế theo yêu cầu'),(104,1200000,1,NULL,NULL,'NK.104','Phòng thiết kế theo yêu cầu'),(105,120000,0,2,2,'NK.105',NULL),(201,150000,1,1,1,'NK.201','Phòng tổng thống'),(202,1200000,1,1,1,'NK.202','Phòng phó tổng thổng'),(203,1000000,0,2,2,'NK.203','Phòng thương gia'),(204,1500000,0,2,3,'NK.204','Phòng dành cho đoàn V.I.P'),(205,500000,0,1,2,'NK.205','Khách V.I.P');
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -335,7 +334,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
-INSERT INTO `services` VALUES (1,'Dọn dẹp phòng',120000,NULL),(2,'Làm đầy thức ăn trong tủ lạnh',120000,NULL),(3,'Giặt ủi',1500000,NULL),(4,'Xe đưa rước',120000,NULL),(5,'Dịch vụ massage',532000,NULL),(6,'Dịch vụ spa',350000,NULL),(7,'Đặt phòng họp',5000000,NULL),(8,'Thuê bảo vệ phòng',3600000,NULL),(9,'Thuê quản gia riêng',9540000,NULL),(10,'Thuê bác sĩ riêng',2600000,NULL);
+INSERT INTO `services` VALUES (1,'Dọn dẹp phòng',120000,NULL),(2,'Làm đầy thức ăn trong tủ lạnh',120000,NULL),(3,'Giặt ủi',150000,NULL),(4,'Xe đưa rước',120000,NULL),(5,'Dịch vụ massage',532000,NULL),(6,'Dịch vụ spa',350000,NULL),(7,'Đặt phòng họp',5000000,NULL),(8,'Thuê bảo vệ phòng',3600000,NULL),(9,'Thuê quản gia riêng',9540000,NULL),(10,'Thuê bác sĩ riêng',2600000,NULL);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -348,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-28 21:31:07
+-- Dump completed on 2022-12-05 10:17:13
