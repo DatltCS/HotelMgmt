@@ -16,8 +16,8 @@
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1024.0" styleClass="nav-bar">
          <children>
             <Label prefHeight="54.0" prefWidth="258.0" styleClass="logo" text="DEL LUNA" />
-            <ComboBox fx:id="cbRoomNum" prefHeight="38.0" prefWidth="230.0" promptText="Choose your booking" />
-            <HBox alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="530.0">
+            <ComboBox fx:id="cbRoomNum" prefHeight="38.0" prefWidth="295.0" promptText="Choose your booking" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="462.0">
                <children>
                   <MenuButton fx:id="menuBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="44.0" textAlignment="RIGHT" textFill="WHITE" underline="true">
                      <font>

@@ -43,6 +43,8 @@ public class FServicesController implements Initializable {
 
         BookingServices bS = new BookingServices();
         this.cbRoomNum.setItems(FXCollections.observableList(bS.getBookingIDList(CustomerServices.customer.getCustomerID())));
+        if (this.cbRoomNum.getItems().size() == 0)
+            this.cbRoomNum.promptTextProperty().setValue("You don't have any booking!");
 
         // load hiển thị các table view
         loadTableView(tbvServices);
@@ -64,7 +66,6 @@ public class FServicesController implements Initializable {
                 Utils.getBox("Please choose the service you want first!", Alert.AlertType.WARNING).show();
             else {
                 // Them service vao booking da chon
-                BookingServices bS = new BookingServices();
                 BookingSServices bsS = new BookingSServices();
                 bsS.addNewBookingService(cbRoomNum.getValue(), s.getServiceID());
                 // Reload tbvChosen
