@@ -114,9 +114,9 @@ public class FServicesEmployeeController implements Initializable {
         }
         else {
             BookingServices bS = new BookingServices();
-            Booking b = bS.getBookingByID(Integer.parseInt(this.txtfID.getText()));
+            Booking b = bS.getValidBookingByID(Integer.parseInt(this.txtfID.getText()));
             if (b == null) {
-                Utils.getBox("This Booking ID does not exist!", Alert.AlertType.ERROR).show();
+                Utils.getBox("This Booking ID does not exist now!", Alert.AlertType.ERROR).show();
                 return false;
             }
             else {

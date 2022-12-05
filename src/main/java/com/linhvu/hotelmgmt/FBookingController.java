@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -105,7 +106,8 @@ public class FBookingController implements Initializable {
     }
 
     public BigDecimal calTotal() {
-        BigDecimal totalPrice = RoomServices.room.getPricePerDay();
+        BillServices bS = new BillServices();
+        BigDecimal totalPrice = bS.calRoomPrice(BookingServices.booking);
         List<String> services = cbServices.getCheckModel().getCheckedItems();
         ServiceServices sS = new ServiceServices();
 
