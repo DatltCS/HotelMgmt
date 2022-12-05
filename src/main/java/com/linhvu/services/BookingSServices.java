@@ -19,12 +19,12 @@ import java.util.List;
 
 // Service class for BookingService
 public class BookingSServices {
-    public void addNewBookingService(Booking booking, Service service) {
+    public void addNewBookingService(int bookingID, int serviceID) {
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("INSERT INTO booking_services (BookingID, ServiceID) " +
                     "VALUES (?, ?)");
-            stm.setInt(1, booking.getBookingID());
-            stm.setInt(2, service.getServiceID());
+            stm.setInt(1, bookingID);
+            stm.setInt(2, serviceID);
 
             stm.executeUpdate();
         } catch (SQLException e) {
@@ -32,8 +32,31 @@ public class BookingSServices {
         }
     }
 
-    public void removeBookingService(Booking booking, Service service) {
-        
+    public boolean removeBookingService(int bookingID, int serviceID) {
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("DELETE FROM booking_services WHERE BookingID = ? AND ServiceID = ?");
+            stm.setInt(1, bookingID);
+            stm.setInt(2, serviceID);
+
+            if (stm.executeUpdate() != 0)
+                return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean removeAllService(int bookingID) {
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("DELETE FROM booking_services WHERE BookingID = ?");
+            stm.setInt(1, bookingID);
+
+            if (stm.executeUpdate() != 0)
+                return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public List<Service> getBookedService(int bookingID) {

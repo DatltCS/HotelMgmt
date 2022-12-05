@@ -66,7 +66,7 @@ public class FServicesController implements Initializable {
                 // Them service vao booking da chon
                 BookingServices bS = new BookingServices();
                 BookingSServices bsS = new BookingSServices();
-                bsS.addNewBookingService(bS.getBookingByID(this.cbRoomNum.getValue()), s);
+                bsS.addNewBookingService(cbRoomNum.getValue(), s.getServiceID());
                 // Reload tbvChosen
                 loadTBVChosenData();
             }
@@ -82,9 +82,10 @@ public class FServicesController implements Initializable {
                 Utils.getBox("Please choose the service you want to delete", Alert.AlertType.WARNING).show();
             else {
                 // Xoa service ra khoi booking da chon
-
-                // Reload tbvChosen
-                loadTBVChosenData();
+                BookingSServices bsS = new BookingSServices();
+                if (bsS.removeBookingService(cbRoomNum.getValue(), s.getServiceID()))
+                    loadTBVChosenData();
+                    // Reload tbvChosen
             }
         }
     }
@@ -93,14 +94,18 @@ public class FServicesController implements Initializable {
         if (cbRoomNum.getValue() == null)
             Utils.getBox("Please choose your booking ID!", Alert.AlertType.WARNING).show();
         else {
-            Alert alert = Utils.getBox("Delete all services that you have?", Alert.AlertType.CONFIRMATION);
+//            Alert alert = Utils.getBox("Delete all services that you have?", Alert.AlertType.CONFIRMATION);
+//            alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Delete all services that you have?");
             alert.showAndWait();
 
-            if (alert.getResult() == ButtonType.YES) {
+            if (alert.getResult() == ButtonType.OK) {
                 // Thuc hien xoa het tat ca dich vu
-
-                // Reload tbvChosen
-                loadTBVChosenData();
+                BookingSServices bsS = new BookingSServices();
+                if (bsS.removeAllService(cbRoomNum.getValue()))
+                    loadTBVChosenData();
+                    // Reload tbvChosen
             }
         }
     }

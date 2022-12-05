@@ -92,7 +92,7 @@ public class FBookingController implements Initializable {
             List<String> services = cbServices.getCheckModel().getCheckedItems();
             if (services.size() != 0) {
                 for (String s:services) {
-                    bsS.addNewBookingService(BookingServices.booking, sS.getServiceByName(s));
+                    bsS.addNewBookingService(BookingServices.booking.getBookingID(), sS.getServiceByName(s).getServiceID());
                 }
             }
             Utils.getBox("Booking success!", Alert.AlertType.INFORMATION).show();
