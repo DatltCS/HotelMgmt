@@ -5,6 +5,7 @@
 package com.linhvu.services;
 
 import com.linhvu.conf.JdbcUtils;
+import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Customer;
 
 import java.sql.*;
@@ -51,5 +52,12 @@ public class CustomerServices {
                 return false;
             return true;
         }
+    }
+
+    public boolean vadidatePhoneNum(String phone) {
+        if (phone.charAt(0) != '0') return false;
+        else if (phone.length() != 10) return false;
+        else if (!Utils.isInterger(phone)) return false;
+        else return true;
     }
 }

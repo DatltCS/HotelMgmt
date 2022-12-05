@@ -37,6 +37,7 @@ public class FSignupController implements Initializable {
     @FXML Button btnSignup;
 
     AccountServices aS = new AccountServices();
+    CustomerServices cS = new CustomerServices();
 
     /**
      * Initializes the controller class.
@@ -78,18 +79,16 @@ public class FSignupController implements Initializable {
 
     public void btnSignupClick(ActionEvent event) throws SQLException, ParseException {
         if (!aS.validateUserID(txtfID.getText().trim()))
-            Utils.getBox("Already exist an account of this ID number, please login!", Alert.AlertType.WARNING).show();
+            Utils.getBox("Your ID is invalid or used by another account.", Alert.AlertType.WARNING).show();
         else if (txtfID.getText().isEmpty() || txtfFName.getText().isEmpty() || txtfLName.getText().isEmpty() ||
                 dpBirthday.getEditor().getText().isEmpty() || txtfPhone.getText().isEmpty() || pfPass.getText().isEmpty())
             Utils.getBox("Please fill out all field.", Alert.AlertType.WARNING).show();
-        else {
+        else if (cS.vadidatePhoneNum(txtfPhone.getText())){
             // Khởi tạo thông tin tài khoản và khách hàng
             Account a = new Account(txtfID.getText().trim(), pfPass.getText(), Account.AccountType.customer);
             Customer c = new Customer(a.getUserID(), txtfFName.getText(), txtfLName.getText(), dpBirthday.getValue(), txtfPhone.getText());
 
             // Kiểm tra tính bảo mật của password
-            AccountServices aS = new AccountServices();
-            CustomerServices cS = new CustomerServices();
             int passCheck = aS.validatePassword(a.getUserPass());
             if (passCheck != 1) {
                 switch(passCheck) {
@@ -100,7 +99,7 @@ public class FSignupController implements Initializable {
                         Utils.getBox("Your password must be 8 - 16 characters!", Alert.AlertType.ERROR).show();
                         break;
                     case -2:
-                        Utils.getBox("Password must include lowercase, uppercase, special character and a number.", Alert.AlertType.WARNING).show();
+                        Utils.getBox("Password must contains lower, upper, special character and a number.", Alert.AlertType.WARNING).show();
                         break;
                     default:
                         Utils.getBox("Your password is not string enough!", Alert.AlertType.WARNING).show();
@@ -118,6 +117,8 @@ public class FSignupController implements Initializable {
             }
             else
                 Utils.getBox("Fail to sign up!", Alert.AlertType.ERROR).show();
+        } else {
+            Utils.getBox("Phone number invalid!", Alert.AlertType.WARNING).show();
         }
     }
 }

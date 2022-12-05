@@ -5,6 +5,7 @@
 package com.linhvu.services;
 
 import com.linhvu.conf.JdbcUtils;
+import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Account;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,6 +34,9 @@ public class AccountServices {
 
     public boolean validateUserID(String userID) throws SQLException {
         // Quy ước: true (==0) -> UserID hợp lệ (chưa đc đki), false -> UserID đã đc đăng ký, ko hợp lệ
+        if (!Utils.isInterger(userID))
+            return false;
+
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("SELECT COUNT(1) FROM accounts WHERE UserID = ?");
             stm.setString(1, userID);
