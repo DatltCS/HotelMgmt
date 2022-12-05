@@ -21,7 +21,7 @@ import java.util.List;
 public class BookingSServices {
     public void addNewBookingService(int bookingID, int serviceID) {
         try (Connection conn = JdbcUtils.getConn()) {
-            PreparedStatement stm = conn.prepareStatement("INSERT INTO booking_services (BookingID, ServiceID) " +
+            PreparedStatement stm = conn.prepareStatement("INSERT IGNORE INTO booking_services (BookingID, ServiceID) " +
                     "VALUES (?, ?)");
             stm.setInt(1, bookingID);
             stm.setInt(2, serviceID);
