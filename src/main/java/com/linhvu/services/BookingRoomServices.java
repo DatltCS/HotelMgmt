@@ -33,5 +33,21 @@ public class BookingRoomServices {
         }
     }
 
+    public Room getRoomByBookingID(int bookID) {
+        Room room = null;
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("SELECT * FROM booking b JOIN booking_room br on b.BookingID = br.BookingID " +
+                    "WHERE b.BookingID = ? ");
+            stm.setInt(1, bookID);
+            ResultSet rs = stm.executeQuery();
 
+            while (rs.next())
+                room = new Room(rs.getInt("RoomID"), rs.getString("RoomName"),
+                        rs.getBigDecimal("PricePerDay"), rs.getBoolean("AllowSmoking"),
+                        rs.getInt("SingleBed"), rs.getInt("DoubleBed"), rs.getString("Description"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return room;
+    }
 }

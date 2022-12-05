@@ -130,14 +130,18 @@ public class BookingServices {
         return b;
     }
 
-    public boolean updateBookingStatus(Booking book, Booking.BookingStatus status) {
+    public boolean validStatusTrans(Booking book, Booking.BookingStatus status) {
         if (book.getStatus() == Booking.BookingStatus.checkedout || book.getStatus() == Booking.BookingStatus.canceled) {
             return false;
         } else if (book.getStatus() == status) {
             return false;
-        } else if (book.getStatus() == Booking.BookingStatus.booked && status == Booking.BookingStatus.checkedout) {
+        } else if (book.getStatus() == Booking.BookingStatus.booked && status == Booking.BookingStatus.checkedout)
             return false;
-        } else {
+        return true;
+    }
+
+    public boolean updateBookingStatus(Booking book, Booking.BookingStatus status) {
+        if (validStatusTrans(book, status)) {
             String bStatus;
             switch (status) {
                 case checkedin:
