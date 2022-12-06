@@ -37,6 +37,9 @@ public class AccountServices {
         if (!Utils.isInterger(userID))
             return false;
 
+        if (userID.length() < 9 || userID.length() > 12)
+            return false;
+
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("SELECT COUNT(1) FROM accounts WHERE UserID = ?");
             stm.setString(1, userID);
