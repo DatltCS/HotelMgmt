@@ -71,16 +71,21 @@ public class FMainGuestController implements Initializable {
     }
 
     public void btnSignIn(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FLogin.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+//        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FLogin.fxml"));
+//        Parent root = fxmlLoader.load();
+//        Scene scene = new Scene(root);
+//        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.setTitle("Hotel del Luna Management App");
+//        stage.show();
+//
+//        Utils.centerScreen(stage);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        App.setRoot("FLogin");
+        stage.sizeToScene();
         stage.setTitle("Hotel del Luna Management App");
-        stage.show();
-
         Utils.centerScreen(stage);
-    }
+}
 
     public void btnSignUp(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("FSignup.fxml"));

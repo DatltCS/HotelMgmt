@@ -18,7 +18,7 @@
             <Label prefHeight="53.0" prefWidth="196.0" styleClass="logo" text="DEL LUNA" />
             <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="493.0" spacing="20.0">
                <children>
-                  <TextField fx:id="txtfID" promptText="Customer ID" styleClass="txt-search" />
+                  <TextField fx:id="txtfID" promptText="Booking ID" styleClass="txt-search" />
                   <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchClick" styleClass="btn-search-emp" text="Search" />
                </children>
             </HBox>

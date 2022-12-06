@@ -78,11 +78,11 @@ public class FSignupController implements Initializable {
     }
 
     public void btnSignupClick(ActionEvent event) throws SQLException, ParseException {
-        if (!aS.validateUserID(txtfID.getText().trim()))
-            Utils.getBox("Your ID is invalid or used by another account.", Alert.AlertType.WARNING).show();
-        else if (txtfID.getText().isEmpty() || txtfFName.getText().isEmpty() || txtfLName.getText().isEmpty() ||
+        if (txtfID.getText().isEmpty() || txtfFName.getText().isEmpty() || txtfLName.getText().isEmpty() ||
                 dpBirthday.getEditor().getText().isEmpty() || txtfPhone.getText().isEmpty() || pfPass.getText().isEmpty())
             Utils.getBox("Please fill out all field.", Alert.AlertType.WARNING).show();
+        else if (!aS.validateUserID(txtfID.getText().trim()))
+            Utils.getBox("Your ID is invalid or used by another account.", Alert.AlertType.WARNING).show();
         else if (cS.vadidatePhoneNum(txtfPhone.getText())){
             // Khởi tạo thông tin tài khoản và khách hàng
             Account a = new Account(txtfID.getText().trim(), pfPass.getText(), Account.AccountType.customer);
