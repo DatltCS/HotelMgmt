@@ -36,8 +36,8 @@ public class BookingRoomServices {
     public Room getRoomByBookingID(int bookID) {
         Room room = null;
         try (Connection conn = JdbcUtils.getConn()) {
-            PreparedStatement stm = conn.prepareStatement("SELECT * FROM booking b JOIN booking_room br on b.BookingID = br.BookingID " +
-                    "WHERE b.BookingID = ? ");
+            PreparedStatement stm = conn.prepareStatement("SELECT * FROM room r JOIN booking_room br on r.RoomID = br.RoomID " +
+                    "WHERE br.BookingID = ? ");
             stm.setInt(1, bookID);
             ResultSet rs = stm.executeQuery();
 

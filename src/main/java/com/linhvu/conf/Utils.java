@@ -190,13 +190,4 @@ public class Utils {
             }
         });
     }
-
-    public static Date convertDPtoDate(DatePicker dtPicker) {
-        return Date.from(dtPicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-//        return Date.from(Instant.from(dtPicker.getValue()));
-    }
-
-    public static LocalDate convertDatetoDP(Date date) {
-        return new LocalDateStringConverter(FormatStyle.MEDIUM).fromString(date.toString());
-    }
 }

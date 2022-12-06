@@ -38,24 +38,6 @@ public class BookingServices {
         return max;
     }
 
-    public Booking getBookingByID(int bookingID) {
-        Booking b = null;
-        try (Connection conn = JdbcUtils.getConn()) {
-            PreparedStatement stm = conn.prepareStatement("SELECT * FROM booking WHERE BookingID = ? ");
-            stm.setInt(1, bookingID);
-
-            ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                b = new Booking(rs.getInt("BookingID"), rs.getTimestamp("CreateDate"),
-                        rs.getDate("StartDate").toLocalDate() , rs.getDate("EndDate").toLocalDate(),
-                        rs.getInt("CustomerID"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return b;
-    }
-
     public List<Integer> getBookingIDList(int customerID) {
         List<Integer> IDList = new ArrayList<>();
         try (Connection conn = JdbcUtils.getConn()) {
