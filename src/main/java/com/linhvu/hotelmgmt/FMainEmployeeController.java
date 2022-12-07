@@ -25,7 +25,6 @@ public class FMainEmployeeController implements Initializable {
     @FXML MenuButton menuBtn;
     @FXML Button btnCheckInOut;
     @FXML Button btnBookDetails;
-    @FXML Button btnManageRoom;
 
     /**
      * Initializes the controller class.
@@ -50,10 +49,6 @@ public class FMainEmployeeController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void btnManageRoomClick(ActionEvent event) {
-        // Chưa xử lý
     }
 
     public void loadMenuButton(boolean key) {
