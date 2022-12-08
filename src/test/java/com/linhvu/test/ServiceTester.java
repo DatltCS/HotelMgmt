@@ -7,6 +7,7 @@ package com.linhvu.test;
 import com.linhvu.pojo.Service;
 import com.linhvu.services.ServiceServices;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -23,6 +24,7 @@ public class ServiceTester {
     ServiceServices sS = new ServiceServices();
 
     @Test
+    @Tag("getServiceNameList")
     public void testGetServicesName() {
         try {
             List<String> names = sS.getServiceNameList();
@@ -33,6 +35,7 @@ public class ServiceTester {
     }
 
     @Test
+    @Tag("getServiceList")
     public void testGetServicesList() {
         try {
             List<Service> services = sS.getServiceList();
@@ -43,6 +46,7 @@ public class ServiceTester {
     }
 
     @ParameterizedTest
+    @Tag("getServicePriceByName")
     @CsvFileSource(resources = "/service_data01.csv")
     public void getServicePriceByName(String name, BigDecimal price) {
         Assertions.assertEquals(price, sS.getServiceByName(name).getPricePerHour());

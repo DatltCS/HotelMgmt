@@ -6,6 +6,7 @@ package com.linhvu.test;
 
 import com.linhvu.services.BookingRoomServices;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -17,12 +18,14 @@ public class BookingRoomTester {
     BookingRoomServices brS = new BookingRoomServices();
 
     @ParameterizedTest
+    @Tag("getRoomByBookingID")
     @CsvSource({"10024, 101", "10005, 204"})
     public void testGetRoomByValidBookID(int bookID, int roomID) {
         Assertions.assertEquals(roomID, brS.getRoomByBookingID(bookID).getRoomID());
     }
 
     @ParameterizedTest
+    @Tag("getRoomByBookingID")
     @CsvSource({"100000", "20040"})
     public void testGetRoomByInvalidBookID(int bookID) {
         Assertions.assertNull(brS.getRoomByBookingID(bookID));
