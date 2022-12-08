@@ -67,6 +67,8 @@ public class FSearchItemController implements Initializable {
                     stage.initOwner(((Node)event.getSource()).getScene().getWindow());
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.show();
+
+                    // fix bug
                 } else
                     Utils.getBox("Please choose both StartDate and EndDate first!", Alert.AlertType.INFORMATION).show();
             }

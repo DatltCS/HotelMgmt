@@ -50,6 +50,7 @@ return DriverManager.getConnection("jdbc:mysql://localhost/{tên database}", "{t
       - Booked -> Check-in
       - Booked -> Canceled
       - Check-in -> Check-out
+      - Check-in -> Canceled
     - Nếu thao tác chọn chuyển đổi trạng thái của nhân viên không hợp lệ, hệ thống sẽ báo lỗi.
   - **Chức năng Cập nhật đặt dịch vụ phòng cho khách:**
     - Tương tự như chức năng đặt dịch vụ phòng của khách hàng, nhưng nhân viên sẽ phải tự nhập vào ô tìm kiếm mã booking của khách hàng cung cấp để bổ sung dịch vụ phòng. Nếu mã booking đã được check-out hay cancel thì được tính là mã không hợp lệ, trong trường hợp đó hệ thống sẽ báo lỗi.

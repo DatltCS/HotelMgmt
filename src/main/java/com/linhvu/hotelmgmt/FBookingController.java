@@ -4,6 +4,7 @@
  */
 package com.linhvu.hotelmgmt;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
@@ -98,6 +99,8 @@ public class FBookingController implements Initializable {
             // Đóng cửa sổ booking sau khi đăng ký thành công
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.close();
+
+            // fix bug
         } else
             Utils.getBox("Booking failed!", Alert.AlertType.ERROR).show();
     }

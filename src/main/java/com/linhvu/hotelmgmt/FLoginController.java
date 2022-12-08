@@ -95,7 +95,7 @@ public class FLoginController implements Initializable {
                         break;
 
                     case employee:
-//                        // Xử lý xuất hiện màn hình nhân viên
+                        // Xử lý xuất hiện màn hình nhân viên
                         EmployeeServices eS = new EmployeeServices();
                         EmployeeServices.employee = eS.getEmployeeData(a.getUserID());
                         App.setRoot("FMainEmployee");

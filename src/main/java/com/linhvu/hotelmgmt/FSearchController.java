@@ -56,6 +56,8 @@ public class FSearchController implements Initializable {
         Utils.initDatePicker(dtCheckout);
         dtCheckin.setValue(BookingServices.booking.getStateDate());
         dtCheckout.setValue(BookingServices.booking.getEndDate());
+        reinitDtCheckin();
+        reinitDtCheckout();
 
         loadSearchItem();
 
