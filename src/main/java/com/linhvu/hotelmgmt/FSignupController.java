@@ -49,7 +49,7 @@ public class FSignupController implements Initializable {
             @Override
             public void updateItem(LocalDate localDate, boolean b) {
                 super.updateItem(localDate, b);
-                setDisable(b || localDate.compareTo(LocalDate.now()) > 0);
+                setDisable(b || localDate.compareTo(LocalDate.now()) >= 0);
             }
         });
 
