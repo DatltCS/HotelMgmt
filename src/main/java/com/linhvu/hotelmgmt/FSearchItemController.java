@@ -9,8 +9,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
-import com.linhvu.pojo.Booking;
-import com.linhvu.pojo.BookingService;
 import com.linhvu.pojo.Room;
 import com.linhvu.services.BookingServices;
 import com.linhvu.services.RoomServices;
@@ -25,7 +23,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;

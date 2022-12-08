@@ -11,17 +11,10 @@ import javafx.scene.control.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import javafx.util.converter.LocalDateStringConverter;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Date;
 
 /**
  *
@@ -110,13 +103,11 @@ public class Utils {
         MenuItem itemMain = new MenuItem("Employee main page");
         MenuItem itemGuest = new MenuItem("Check in/out guest");
         MenuItem itemBooking = new MenuItem("Check/Edit booking details");
-//        MenuItem itemRoom = new MenuItem("Manage rooms");
         MenuItem itemSignOut = new MenuItem("Sign out");
 
         menuBtn.getItems().add(itemMain);
         menuBtn.getItems().add(itemGuest);
         menuBtn.getItems().add(itemBooking);
-//        menuBtn.getItems().add(itemRoom);
         menuBtn.getItems().add(itemSignOut);
 
         itemMain.setOnAction(event -> {
@@ -168,7 +159,7 @@ public class Utils {
         });
 
         // set format của ngày tháng năm về định dạng dd/MMM/yyyy
-        dtParam.setConverter(new StringConverter<LocalDate>() {
+        dtParam.setConverter(new StringConverter<>() {
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
 
             @Override

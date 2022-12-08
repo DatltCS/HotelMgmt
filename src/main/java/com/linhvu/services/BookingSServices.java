@@ -5,7 +5,6 @@
 package com.linhvu.services;
 
 import com.linhvu.conf.JdbcUtils;
-import com.linhvu.pojo.Booking;
 import com.linhvu.pojo.Service;
 
 import java.sql.*;

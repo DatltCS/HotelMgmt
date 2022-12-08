@@ -4,7 +4,6 @@
  */
 package com.linhvu.hotelmgmt;
 
-import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -14,7 +13,6 @@ import java.util.ResourceBundle;
 import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Booking;
 import com.linhvu.pojo.Customer;
-import com.linhvu.pojo.Service;
 import com.linhvu.services.BookingServices;
 import com.linhvu.services.CustomerServices;
 import com.linhvu.services.EmployeeServices;

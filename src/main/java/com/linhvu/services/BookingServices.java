@@ -63,7 +63,7 @@ public class BookingServices {
             stm.setInt(1, customerID);
 
             ResultSet rs = stm.executeQuery();
-            Booking b = null;
+            Booking b;
             while (rs.next()) {
                 b = new Booking(rs.getInt("BookingID"), rs.getTimestamp("CreateDate"),
                         rs.getDate("StartDate").toLocalDate() , rs.getDate("EndDate").toLocalDate(),

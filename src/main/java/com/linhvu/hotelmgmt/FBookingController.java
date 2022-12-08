@@ -8,13 +8,11 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.linhvu.conf.Utils;
 import com.linhvu.pojo.Booking;
-import com.linhvu.pojo.Room;
 import com.linhvu.services.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -30,7 +28,6 @@ import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
-import org.controlsfx.control.action.Action;
 
 /**
  * FXML Controller class
