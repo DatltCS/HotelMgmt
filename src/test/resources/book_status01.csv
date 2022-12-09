@@ -1,0 +1,15 @@
+booked, checkedin, true
+booked, checkedout, false
+booked, canceled, true
+checkedin, checkedin, false
+checkedin, checkedout, true
+checkedin, canceled, true
+checkedout, checkedin, false
+checkedout, checkedout, false
+checkedout, canceled, false
+canceled, checkedin, false
+canceled, checkedout, false
+canceled, canceled, false
+abandoned, checkedin, false
+abandoned, checkedout, false
+abandoned, canceled, false

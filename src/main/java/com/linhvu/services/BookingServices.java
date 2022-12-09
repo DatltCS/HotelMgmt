@@ -113,7 +113,7 @@ public class BookingServices {
     }
 
     public boolean validStatusTrans(Booking book, Booking.BookingStatus status) {
-        if (book.getStatus() == Booking.BookingStatus.checkedout || book.getStatus() == Booking.BookingStatus.canceled) {
+        if (book.getStatus() == Booking.BookingStatus.checkedout || book.getStatus() == Booking.BookingStatus.canceled || book.getStatus() == Booking.BookingStatus.abandoned) {
             return false;
         } else if (book.getStatus() == status) {
             return false;
@@ -172,14 +172,14 @@ public class BookingServices {
 
     }
 
-    public boolean addNewBooking(Booking book) {
+    public boolean addNewBooking(Booking book, int customerID) {
         try (Connection conn = JdbcUtils.getConn()) {
             PreparedStatement stm = conn.prepareStatement("INSERT INTO booking (CreateDate, StartDate, EndDate, CustomerID) " +
                                                         "VALUES(?, ?, ?, ?)");
             stm.setTimestamp(1, book.getCreateDate());
             stm.setDate(2, Date.valueOf(book.getStateDate()));
             stm.setDate(3, Date.valueOf(book.getEndDate()));
-            stm.setInt(4, CustomerServices.customer.getCustomerID());
+            stm.setInt(4, customerID);
 
             if (stm.executeUpdate() != 0)
                 return true;

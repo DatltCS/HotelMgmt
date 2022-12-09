@@ -82,7 +82,7 @@ public class FBookingController implements Initializable {
         BookingServices.booking.setStatus(Booking.BookingStatus.booked);
         BookingServices.booking.setCustomerID(CustomerServices.customer.getCustomerID());
 
-        if (bS.addNewBooking(BookingServices.booking)) {
+        if (bS.addNewBooking(BookingServices.booking, CustomerServices.customer.getCustomerID())) {
             BookingRoomServices rS = new BookingRoomServices();
             rS.addNewBookingRoom(BookingServices.booking, RoomServices.room);
 
